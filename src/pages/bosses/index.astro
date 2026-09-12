@@ -1,0 +1,255 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Wanderburg Bosses Guide — Four Bosses per Land, Unlock Chain (0.9.9 EA)';
+const description =
+  'Wanderburg bosses: how the four-boss-per-land chain works (Green Plains → Golden Dunes), what bosses unlock, when to fight vs cash out, and the lifetime boss achievements. No invented boss names.';
+
+const ogImage = 'https://wanderburgguide.site/images/modules/still-battle-b.jpg';
+const heroSrc = '/images/modules/still-battle-b.jpg';
+
+const lands = [
+  {
+    land: 'Green Plains',
+    bosses: '4 bosses',
+    verified: 'Verified on EN tapes',
+    unlocks: 'Clears the map → next land (Golden Dunes)',
+  },
+  {
+    land: 'Golden Dunes (the “Desert Biome” on Steam achievements)',
+    bosses: '4 bosses',
+    verified: 'Verified on EN tapes',
+    unlocks: 'All four down → Spiderberg unlock toast (then buy)',
+  },
+  {
+    land: 'Dusky Pines',
+    bosses: 'Boss count not verified',
+    verified: 'Spoken as difficulty 3, tagged 1.3× silver',
+    unlocks: 'That silver tag only pays if you reach Overtime',
+  },
+  {
+    land: 'Wasteland',
+    bosses: 'Boss count not verified',
+    verified: 'Called the hardest land by creators',
+    unlocks: 'Skip until your kit survives a full clear',
+  },
+];
+
+const bossLadder = [
+  { tier: '10 bosses destroyed', rate: '50.8% of players', note: 'About two-and-a-half full Green Plains + Golden Dunes loops' },
+  { tier: '25 bosses destroyed', rate: '18.9%', note: 'Regular land-cycling — Overtime runs still count the bosses you kill' },
+  { tier: '50 bosses destroyed', rate: '3.7%', note: 'Grind territory' },
+  { tier: '75 bosses destroyed', rate: '0.8%', note: 'Grind territory' },
+  { tier: '100 bosses destroyed', rate: '0.2%', note: 'Rarest combat achievement tier' },
+];
+
+const toc = [
+  { href: '#key-takeaways', label: 'Key Takeaways' },
+  { href: '#boss-chain', label: 'How bosses gate the run' },
+  { href: '#lands', label: 'Lands & unlock chain' },
+  { href: '#fight-vs-cashout', label: 'Fight or cash out' },
+  { href: '#survival', label: 'Staying alive at a boss' },
+  { href: '#boss-achievements', label: 'Boss achievements' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/bosses/">
+  <div class="editorial-hero">
+    <img
+      src={heroSrc}
+      alt="Wanderburg battle — a boss fight at the edge of Overtime"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="editorial-layout">
+    <article class="editorial-main">
+      <h1>Wanderburg Bosses</h1>
+      <p class="page-meta">Last Updated · Sep 13, 2026 · Early Access</p>
+      <p class="editorial-intro">
+        Every land ends the same way: four bosses, then the Overtime decision. Here is the verified chain — and what we
+        still cannot confirm (like boss names).
+      </p>
+
+      <section class="takeaways" id="key-takeaways" aria-labelledby="takeaways-heading">
+        <h2 id="takeaways-heading">Key Takeaways</h2>
+        <ul>
+          <li><strong>Four bosses per land</strong> — the verified loop on Green Plains and Golden Dunes.</li>
+          <li>Bosses gate progression: <strong>Golden Dunes’ four bosses unlock Spiderberg</strong> (then buy with silver).</li>
+          <li>Leftover boss on the field? <strong>Cash out</strong> — grinding OT next to a boss is the classic run-ender.</li>
+          <li>No official boss names exist on EN tapes yet — we won’t invent them.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section" id="boss-chain">
+        <h2>How do bosses gate a Wanderburg run?</h2>
+        <p>
+          <strong>Answer:</strong> Each land is a loop of <strong>four boss fights</strong>. Clear them and the land is
+          done — the game offers the end screen <strong>or</strong> Overtime, and your next land unlocks.
+        </p>
+        <p>
+          “You won!” — the achievement 79% of players already have — is exactly that moment: finishing a land. The
+          lifetime boss ladder (10 → 25 → 50 → 75 → 100 bosses destroyed) counts across every run, Overtime included.
+        </p>
+        <p>
+          One Chinese-language starter guide adds that beating stage bosses upgrades the castle body itself — plausible,
+          but we haven’t read it on EN tape yet, so treat it as <em>to be confirmed</em>.
+        </p>
+      </section>
+
+      <section class="rankings-section" id="lands" aria-labelledby="lands-heading">
+        <h2 id="lands-heading">Lands and what their bosses unlock</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Land</th>
+                <th>Bosses</th>
+                <th>Evidence</th>
+                <th>Clearing it unlocks</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lands.map((l) => (
+                <tr>
+                  <td><strong>{l.land}</strong></td>
+                  <td>{l.bosses}</td>
+                  <td>{l.verified}</td>
+                  <td>{l.unlocks}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="meta-note">
+          Steam’s achievement text names the <strong>Desert Biome</strong> (68.5% unlock) and a
+          <strong>Dark Forest Biome</strong> (55.8%). Creators say Dusky Pines and Wasteland — we can’t yet map those
+          names onto the achievement biomes with confidence, so both are listed. See
+          <a href="/achievements/">Achievements</a>.
+        </p>
+      </section>
+
+      <section class="guide-section" id="fight-vs-cashout">
+        <h2>Four bosses down — fight on or cash out?</h2>
+        <p>
+          <strong>Answer:</strong> After the fourth boss, with HP intact and a clear field, <strong>Overtime pays
+          better than anything else</strong> — that’s the core silver loop (<a href="/silver-farming/">Silver
+          farming</a>). With a boss still alive on the field, cash out: grind tapes call that state “not great”, and the
+          enemy speed-up turns a leftover boss into a run-ender.
+        </p>
+        <div class="decision-tree">
+          <h3>Quick call</h3>
+          <ul>
+            <li><strong>Field clear + HP fine</strong> → enter Overtime, kite, bank silver.</li>
+            <li><strong>Boss still walking</strong> → cash out. Re-fight him next run with a fuller kit.</li>
+            <li><strong>Mid-fight brick (no mobility, low HP)</strong> → cash out, spend the toast, come back stronger.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="guide-section" id="survival">
+        <h2>Staying alive at a boss — what’s verified</h2>
+        <p>
+          Bosses punish a stationary castle. The moves that consistently survive on tape are all mobility-first:
+        </p>
+        <ul>
+          <li>
+            <strong>Kite, don’t facetank.</strong> Overtime-grade kits (mines while driving, ram shoves, boost) exist
+            precisely because standing still loses the run.
+          </li>
+          <li>
+            <strong>Feed one family before the boss window.</strong> Side cannons to level 10 → Front Cannon toast is the
+            standard power spike between bosses (<a href="/best-modules/">Best modules</a>).
+          </li>
+          <li>
+            <strong>Bring mobility even on Empress.</strong> Her half-speed tax is most expensive exactly when a boss is
+            chasing you — pair with ram / booster / nitro (<a href="/captains/">Captains</a>).
+          </li>
+          <li>
+            <strong>First-boss window is the hard part.</strong> Chinese-language guides agree the stretch before the
+            first boss falls is when runs die — your kit is thinnest there. Spend early gold on the damage engine, not
+            spread picks.
+          </li>
+        </ul>
+      </section>
+
+      <section class="rankings-section" id="boss-achievements" aria-labelledby="bossach-heading">
+        <h2 id="bossach-heading">Boss achievements (lifetime ladder)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Achievement</th>
+                <th>Global unlock rate</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bossLadder.map((b) => (
+                <tr>
+                  <td><strong>{b.tier}</strong></td>
+                  <td>{b.rate}</td>
+                  <td>{b.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="meta-note">
+          Rates from the public Steam achievements page, Sep 2026 — they move as more players finish the tutorial
+          window. Full list: <a href="/achievements/">Achievements</a>.
+        </p>
+      </section>
+
+      <section class="guide-section" id="faq">
+        <h2>FAQ</h2>
+        <h3>How many bosses are in Wanderburg?</h3>
+        <p>
+          <strong>Answer:</strong> Four per land. Green Plains and Golden Dunes both show the four-boss loop on tape;
+          the deeper lands’ exact counts aren’t verified yet.
+        </p>
+        <h3>What are the boss names?</h3>
+        <p>
+          <strong>Answer:</strong> Not published on EN tapes or official copy we can read — so we don’t print any. Sites
+          listing boss names right now are inventing them. When names appear on tape, they land here first.
+        </p>
+        <h3>Do bosses respawn / can I refarm them?</h3>
+        <p>
+          <strong>Answer:</strong> Bosses reappear every run of the same land — that’s what makes the lifetime ladder
+          (10/25/50/75/100) reachable, and why Overtime kills still count. Exact respawn scheduling per land: not
+          verified.
+        </p>
+      </section>
+
+      <div class="crosslinks">
+        <strong>Next:</strong>
+        <a href="/silver-farming/">Silver farming</a> ·
+        <a href="/unlocks/">Unlock conditions</a> ·
+        <a href="/best-modules/">Best modules</a> ·
+        <a href="/">Home</a>
+      </div>
+
+      <details class="still-checking">
+        <summary>Still checking</summary>
+        <ul>
+          <li>Boss names and attack patterns — nothing readable on EN tapes yet.</li>
+          <li>Boss counts for Dusky Pines / Wasteland.</li>
+          <li>“Castle body upgrades on stage bosses” — CN-guide claim, needs EN tape.</li>
+          <li>Achievement-name ↔ land-name mapping (Desert / Dark Forest vs Golden Dunes / Dusky Pines).</li>
+        </ul>
+      </details>
+    </article>
+
+    <aside class="toc" aria-label="On this page">
+      <p class="toc-label">On this page</p>
+      <nav>
+        {toc.map((item, i) => (
+          <a href={item.href} class={i === 0 ? 'is-active' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>

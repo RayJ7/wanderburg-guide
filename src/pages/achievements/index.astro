@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Wanderburg Achievements — All 26, Unlock Rates & Fastest Routes (0.9.9 EA)';
+const description =
+  'Every Wanderburg achievement (26 total) with global unlock rates, grouped into the five grind families, plus the reported desert biome achievement bug and which counters your Overtime runs fill for free.';
+
+const ogImage = 'https://wanderburgguide.site/images/modules/still-press-field.jpg';
+const heroSrc = '/images/modules/still-press-field.jpg';
+
+/** Source: public Steam achievements page, Sep 2026. Rates move — date-stamped. */
+const achievements = [
+  { name: '10.000 meters travelled', req: 'Travel 10 km overall', rate: '91.1%', family: 'Distance' },
+  { name: '100 Vehicles destroyed', req: 'Destroy 100 vehicles overall', rate: '87.8%', family: 'Vehicles' },
+  { name: 'You won!', req: 'Finish a land', rate: '79.4%', family: 'Progression' },
+  { name: '1000 units consumed', req: 'Consume 1,000 units overall', rate: '76.4%', family: 'Consuming' },
+  { name: 'Welcome to the Desert!', req: 'Unlock the Desert Biome', rate: '68.5%', family: 'Progression' },
+  { name: '500 Vehicles destroyed', req: 'Destroy 500 vehicles overall', rate: '61.5%', family: 'Vehicles' },
+  { name: 'Welcome to the Dark Forest!', req: 'Unlock the Dark Forest Biome', rate: '55.8%', family: 'Progression' },
+  { name: 'Spiderburg unlocked', req: '“Time to grow some legs!”', rate: '55.8%', family: 'Progression' },
+  { name: '10 Bosses destroyed', req: 'Destroy 10 bosses overall', rate: '50.8%', family: 'Bosses' },
+  { name: '100.000 meters travelled', req: 'Travel 100 km overall', rate: '47.7%', family: 'Distance' },
+  { name: '1000 Vehicles destroyed', req: 'Destroy 1,000 vehicles overall', rate: '40.3%', family: 'Vehicles' },
+  { name: '5000 units consumed', req: 'Consume 5,000 units overall', rate: '30.8%', family: 'Consuming' },
+  { name: 'Tankenburg unlocked', req: '“Bulldoze everything!”', rate: '25.0%', family: 'Progression' },
+  { name: '25 Bosses destroyed', req: 'Destroy 25 bosses overall', rate: '18.9%', family: 'Bosses' },
+  { name: '7.500 units consumed', req: 'Consume 7,500 units overall', rate: '16.7%', family: 'Consuming' },
+  { name: '250.000 meters travelled', req: 'Travel 250 km overall', rate: '15.7%', family: 'Distance' },
+  { name: '10.000 units consumed', req: 'Consume 10,000 units overall', rate: '9.4%', family: 'Consuming' },
+  { name: '50 Bosses destroyed', req: 'Destroy 50 bosses overall', rate: '3.7%', family: 'Bosses' },
+  { name: '500.000 meters travelled', req: 'Travel 500 km overall', rate: '3.3%', family: 'Distance' },
+  { name: '5000 Vehicles destroyed', req: 'Destroy 5,000 vehicles overall', rate: '2.2%', family: 'Vehicles' },
+  { name: '75 Bosses destroyed', req: 'Destroy 75 bosses overall', rate: '0.8%', family: 'Bosses' },
+  { name: '25.000 units consumed', req: 'Consume 25,000 units overall', rate: '0.5%', family: 'Consuming' },
+  { name: 'All Lands won!', req: 'Win in all Lands', rate: '0.3%', family: 'Progression' },
+  { name: '100 Bosses destroyed', req: 'Destroy 100 bosses overall', rate: '0.2%', family: 'Bosses' },
+  { name: '1.000.000 meters travelled', req: 'Travel 1,000 km overall', rate: '0.2%', family: 'Distance' },
+  { name: '10.000 Vehicles destroyed', req: 'Destroy 10,000 vehicles overall', rate: '0.1%', family: 'Vehicles' },
+];
+
+const toc = [
+  { href: '#key-takeaways', label: 'Key Takeaways' },
+  { href: '#full-list', label: 'All 26 achievements' },
+  { href: '#grind-families', label: 'The five grind families' },
+  { href: '#fastest-routes', label: 'Fastest routes' },
+  { href: '#bugs', label: 'Known achievement bugs' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/achievements/">
+  <div class="editorial-hero">
+    <img
+      src={heroSrc}
+      alt="Wanderburg field fight — lifetime counters tick in every run, Overtime included"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="editorial-layout">
+    <article class="editorial-main">
+      <h1>Achievements — All 26</h1>
+      <p class="page-meta">Last Updated · Sep 13, 2026 · Early Access · rates from Steam, Sep 2026</p>
+      <p class="editorial-intro">
+        Wanderburg’s 26 achievements are almost entirely <strong>lifetime counters</strong> — they tick in every run,
+        Overtime included. Here’s the full list with live unlock rates, and the routes that fill several counters at
+        once.
+      </p>
+
+      <section class="takeaways" id="key-takeaways" aria-labelledby="takeaways-heading">
+        <h2 id="takeaways-heading">Key Takeaways</h2>
+        <ul>
+          <li>Five grind families: <strong>distance, vehicles destroyed, units consumed, bosses, progression</strong>.</li>
+          <li>You get most of the list <strong>accidentally</strong> — Overtime farming also fills distance, vehicles, and consuming.</li>
+          <li>Progression achievements are the fast ones: <strong>two biome unlocks + Spiderburg</strong> sit around 56–69%.</li>
+          <li>The true endgame grinds: <strong>1,000 km (0.2%)</strong> and <strong>10,000 vehicles (0.1%)</strong>.</li>
+          <li>Players report the <strong>Desert biome achievement sticking</strong> — known bug thread on Steam.</li>
+        </ul>
+      </section>
+
+      <section class="rankings-section" id="full-list" aria-labelledby="list-heading">
+        <h2 id="list-heading">Full list (sorted by unlock rate)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Achievement</th>
+                <th>Requirement</th>
+                <th>Family</th>
+                <th>Unlocked</th>
+              </tr>
+            </thead>
+            <tbody>
+              {achievements.map((a) => (
+                <tr>
+                  <td><strong>{a.name}</strong></td>
+                  <td>{a.req}</td>
+                  <td>{a.family}</td>
+                  <td>{a.rate}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="meta-note">
+          Names and requirements are quoted from Steam’s achievement page (achievement text keeps its own spelling —
+          “Spiderburg”, “10.000 meters”). Rates move daily in EA; this snapshot is Sep 2026.
+        </p>
+      </section>
+
+      <section class="guide-section" id="grind-families">
+        <h2>The five grind families, explained</h2>
+        <ul>
+          <li>
+            <strong>Distance (5 tiers, 10 km → 1,000 km).</strong> Pure driving. Overtime kite sessions are long drives —
+            silver farming fills these for free.
+          </li>
+          <li>
+            <strong>Vehicles destroyed (5 tiers, 100 → 10,000).</strong> The rarest family at the top — 10,000 vehicles
+            is 0.1%. Cannon and ram builds feed this hardest.
+          </li>
+          <li>
+            <strong>Units consumed (5 tiers, 1,000 → 25,000).</strong> Eating villages and flocks — which you already do
+            for in-run gold and the consuming quests (<a href="/unlocks/">Unlock conditions</a>).
+          </li>
+          <li>
+            <strong>Bosses destroyed (5 tiers, 10 → 100).</strong> Four per land, every run. Land-cycling beats
+            single-land grinding here.
+          </li>
+          <li>
+            <strong>Progression (6).</strong> The quick ones: finish a land (79.4%), unlock the two named biomes,
+            Spiderburg (Golden Dunes’ four bosses — <a href="/bosses/">Bosses</a>), Tankenburg, and the rare crown:
+            <em>All Lands won!</em> at 0.3%.
+          </li>
+        </ul>
+      </section>
+
+      <section class="guide-section" id="fastest-routes">
+        <h2>Fastest routes — one run, many counters</h2>
+        <p>
+          <strong>Answer:</strong> Don’t farm achievements directly — farm <strong>Overtime after a clean four-boss
+          clear</strong>, and every counter moves at once:
+        </p>
+        <div class="decision-tree">
+          <ul>
+            <li><strong>Overtime kite</strong> → distance tiers + silver + vehicle kills while enemies swarm.</li>
+            <li><strong>Route pastures between fights</strong> → units-consumed tiers <em>and</em> the 1,000-sheep quest lump (2,500 silver).</li>
+            <li><strong>Land-cycle instead of re-running one land</strong> → bosses tier + biome progression together.</li>
+            <li><strong>Cannon or ram family</strong> → vehicles tiers move fastest; mines while kiting add passive kills.</li>
+            <li><strong>Ignore Demo-8 farm tricks</strong> — EA counters are what they are; no known exploit worth printing.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="guide-section" id="bugs">
+        <h2>Known achievement bugs</h2>
+        <p>
+          <strong>Answer:</strong> One confirmed-by-players issue so far: the <strong>Desert biome achievement</strong>
+          (“Welcome to the Desert!”) has a Steam discussion thread reporting it not popping after unlocking the biome.
+          If it sticks for you, it’s not your save — check the thread before reinstalling anything.
+        </p>
+        <p class="meta-note">
+          EA is moving weekly; if a patch fixes it, we’ll date the change on this page. Bug reports live in the game’s
+          Steam discussions — we link, we don’t replace them.
+        </p>
+      </section>
+
+      <section class="guide-section" id="faq">
+        <h2>FAQ</h2>
+        <h3>How many achievements does Wanderburg have?</h3>
+        <p>
+          <strong>Answer:</strong> 26 on Steam at EA launch. The official store page lists Steam Achievements among the
+          features; the in-game list matches 26.
+        </p>
+        <h3>What’s the rarest Wanderburg achievement?</h3>
+        <p>
+          <strong>Answer:</strong> “10.000 Vehicles destroyed” at 0.1%, with “1.000.000 meters travelled” and “100
+          Bosses destroyed” right behind at 0.2%. All three are pure time-in-game — Overtime farming is the honest path.
+        </p>
+        <h3>Do Overtime kills and distance count toward achievements?</h3>
+        <p>
+          <strong>Answer:</strong> The counters are lifetime “overall” counters — Overtime is part of your run and its
+          kills/distance/consumption tick the same counters. That’s what makes the grind tiers realistic.
+        </p>
+      </section>
+
+      <div class="crosslinks">
+        <strong>Next:</strong>
+        <a href="/bosses/">Bosses</a> ·
+        <a href="/silver-farming/">Silver farming</a> ·
+        <a href="/unlocks/">Unlock conditions</a> ·
+        <a href="/">Home</a>
+      </div>
+
+      <details class="still-checking">
+        <summary>Still checking</summary>
+        <ul>
+          <li>Whether the Desert biome achievement bug is patched — watching the Steam thread.</li>
+          <li>In-game achievement list vs Steam (hidden achievements, if any).</li>
+          <li>Dark Forest ↔ Dusky Pines / Wasteland name mapping.</li>
+        </ul>
+      </details>
+    </article>
+
+    <aside class="toc" aria-label="On this page">
+      <p class="toc-label">On this page</p>
+      <nav>
+        {toc.map((item, i) => (
+          <a href={item.href} class={i === 0 ? 'is-active' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>

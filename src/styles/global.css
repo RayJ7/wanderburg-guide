@@ -160,6 +160,12 @@ main {
   max-height: 420px;
 }
 
+/* For hero images that carry in-image text (UI stills) — show the whole frame instead of cropping it */
+.editorial-hero img.hero-contain {
+  object-fit: contain;
+  max-height: 560px;
+}
+
 .editorial-layout {
   display: grid;
   gap: 1.75rem;

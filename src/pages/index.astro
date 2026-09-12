@@ -4,16 +4,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Wanderburg Guide — Modules, Silver & Captains (0.9.9 EA)';
 const description =
   'Player-first Wanderburg Early Access guides: module slot reference, silver Overtime decision tree, and captain × module pairings. Finish runs — no invented DPS or shop prices.';
-const ogImage = 'https://wanderburgguide.site/images/home-hero.jpg';
+const ogImage = 'https://wanderburgguide.site/images/og-home.jpg';
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/" shell="wood">
   <div class="home-hero">
     <img
-      src="/images/home-hero.jpg"
+      src="/images/home-hero.webp"
       alt="Wanderburg — castle on wheels rolling through green hills"
-      width="1200"
-      height="630"
+      width="1920"
+      height="840"
       fetchpriority="high"
     />
     <div class="home-hero-overlay">
@@ -57,17 +57,65 @@ const ogImage = 'https://wanderburgguide.site/images/home-hero.jpg';
     </a>
     <a class="entry-card" href="/captains/">
       <img
-        class="card-thumb thumb-portrait"
-        src="/images/captains/captain_Tankbert_clean.jpg"
-        alt="Tankbert captain card"
-        width="400"
-        height="560"
+        class="card-thumb"
+        src="/images/home-captains-thumb.jpg"
+        alt="Wanderburg captain cards — Patchy the Pirate, Racer Ruth, Tankbert"
+        width="640"
+        height="360"
       />
       <div class="card-icon icon-captains" aria-hidden="true">⛑️</div>
       <h2>Captains Pairing</h2>
       <p>Unlock / role / pairing for the EN roster. Pirate → cannons. No fake tiers.</p>
       <div class="card-tag">Find Your Perfect Crew</div>
       <span class="cta-btn block">View pairings →</span>
+    </a>
+  </div>
+
+  <div class="card-grid cards-3" style="margin-top:1.35rem;">
+    <a class="entry-card" href="/bosses/">
+      <img
+        class="card-thumb"
+        src="/images/modules/still-battle-b.jpg"
+        alt="Wanderburg boss fight — four bosses gate every land"
+        width="1200"
+        height="675"
+        loading="lazy"
+      />
+      <div class="card-icon" aria-hidden="true">🏰</div>
+      <h2>Bosses Guide</h2>
+      <p>Four bosses per land, the unlock chain, and when to fight vs cash out.</p>
+      <div class="card-tag">Boss loop</div>
+      <span class="cta-btn block">Read bosses →</span>
+    </a>
+    <a class="entry-card" href="/unlocks/">
+      <img
+        class="card-thumb"
+        src="/images/modules/still-shop-loadout.jpg"
+        alt="Wanderburg camp shop — every verified unlock condition"
+        width="1200"
+        height="675"
+        loading="lazy"
+      />
+      <div class="card-icon icon-silver" aria-hidden="true">🔓</div>
+      <h2>Unlock Conditions</h2>
+      <p>Front Cannon at side cannons 10, Companion at 120 walking enemies — every verified chain.</p>
+      <div class="card-tag">Toast ≠ owned</div>
+      <span class="cta-btn block">See unlocks →</span>
+    </a>
+    <a class="entry-card" href="/achievements/">
+      <img
+        class="card-thumb"
+        src="/images/modules/still-press-field.jpg"
+        alt="Wanderburg field fight — all 26 achievements with unlock rates"
+        width="1200"
+        height="675"
+        loading="lazy"
+      />
+      <div class="card-icon icon-captains" aria-hidden="true">🏆</div>
+      <h2>Achievements</h2>
+      <p>All 26 with live unlock rates, fastest routes, and the reported desert bug.</p>
+      <div class="card-tag">26 achievements</div>
+      <span class="cta-btn block">Track them →</span>
     </a>
   </div>
 

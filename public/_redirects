@@ -1,3 +1,1 @@
-/captains-tier-list /captains/ 301
-/captains-tier-list/ /captains/ 301
-/captains-tier-list/* /captains/ 301
+# Edge redirects (Cloudflare Pages). Keep in sync with src/pages/.

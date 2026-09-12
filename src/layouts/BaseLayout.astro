@@ -13,7 +13,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = 'https://wanderburgguide.site/images/home-hero.jpg',
+  ogImage = 'https://wanderburgguide.site/images/og-home.jpg',
   ogType = 'website',
   canonicalPath = Astro.url.pathname,
 } = Astro.props;
@@ -23,10 +23,11 @@ const canonical = `${site}${canonicalPath.endsWith('/') ? canonicalPath : canoni
 const path = Astro.url.pathname;
 
 const nav = [
-  { href: '/', label: 'Builds', match: (p: string) => p === '/' },
+  { href: '/builds/', label: 'Builds', match: (p: string) => p.startsWith('/builds') },
   { href: '/best-modules/', label: 'Modules', match: (p: string) => p.startsWith('/best-modules') },
   { href: '/captains/', label: 'Captains', match: (p: string) => p.startsWith('/captains') },
   { href: '/silver-farming/', label: 'Silver', match: (p: string) => p.startsWith('/silver-farming') },
+  { href: '/bosses/', label: 'Bosses', match: (p: string) => p.startsWith('/bosses') },
 ];
 ---
 

@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Wanderburg Unlock Conditions — Every Verified Unlock Chain (0.9.9 EA)';
+const description =
+  'How to unlock everything in Wanderburg EA: Front Cannon at side cannons 10, Arms at ram 10, Repair Crew at 100 health boxes, Companion at 120 walking enemies, Spiderberg at Golden Dunes’ four bosses — and why toast ≠ owned.';
+
+const ogImage = 'https://wanderburgguide.site/images/modules/still-camp-shop.jpg';
+const heroSrc = '/images/modules/still-camp-shop.jpg';
+
+const chains = [
+  { action: 'Side cannons → upgrade level 10', opens: 'Front Cannon (front slot)' },
+  { action: 'Front Ram → upgrade level 10', opens: 'Arms' },
+  { action: 'Archer crew → upgrade level 10', opens: 'Archer Tower (side slot)' },
+  { action: 'Destroy 100 health boxes overall', opens: 'Repair Crew' },
+  { action: 'Destroy 120 walking enemies overall', opens: 'Companion (back slot)' },
+  { action: 'Clear Green Plains’ four bosses', opens: 'Golden Dunes land' },
+  { action: 'Clear Golden Dunes’ four bosses', opens: 'Spiderberg unlock toast (then buy)' },
+  { action: 'Consume 100 units in one run', opens: '500 silver quest lump' },
+  { action: 'Consume 1,000 sheep overall', opens: '2,500 silver quest lump' },
+];
+
+const toc = [
+  { href: '#key-takeaways', label: 'Key Takeaways' },
+  { href: '#the-rule', label: 'The one rule: toast ≠ owned' },
+  { href: '#chains', label: 'All verified unlock chains' },
+  { href: '#silver-shop', label: 'The silver shop' },
+  { href: '#buy-order', label: 'First-week buy order' },
+  { href: '#vehicles', label: 'Vehicles' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/unlocks/">
+  <div class="editorial-hero">
+    <img
+      src={heroSrc}
+      alt="Wanderburg camp shop — unlocks are purchased with silver between runs"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="editorial-layout">
+    <article class="editorial-main">
+      <h1>Unlock Conditions</h1>
+      <p class="page-meta">Last Updated · Sep 13, 2026 · Early Access</p>
+      <p class="editorial-intro">
+        Every verified unlock in 0.9.9 EA on one page — the in-run chains, the lifetime counters, and the silver that
+        actually buys them.
+      </p>
+
+      <section class="takeaways" id="key-takeaways" aria-labelledby="takeaways-heading">
+        <h2 id="takeaways-heading">Key Takeaways</h2>
+        <ul>
+          <li><strong>Toast ≠ owned.</strong> An unlock toast only lets you <em>buy</em> the thing in the loadout — silver pays.</li>
+          <li>Level-10 chains: <strong>side cannons → Front Cannon</strong>, <strong>ram → Arms</strong>, <strong>archer crew → Archer Tower</strong>.</li>
+          <li>Lifetime counters: <strong>100 health boxes → Repair Crew</strong>, <strong>120 walking enemies → Companion</strong>.</li>
+          <li>Golden Dunes’ four bosses → <strong>Spiderberg</strong>; Green Plains’ four → the next land.</li>
+          <li>No verified shop price grid — the only card-still price we can read is Tankbert at 1,500 silver.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section" id="the-rule">
+        <h2>The one rule: unlock toast ≠ owned</h2>
+        <p>
+          <strong>Answer:</strong> In Wanderburg EA, <strong>every unlock is two steps</strong>: the in-run condition
+          produces an <strong>unlock toast</strong>, and the actual purchase happens <strong>between runs in the
+          loadout</strong>, paid with <strong>silver</strong>. Same screen for modules, crew, vehicles, and captains.
+        </p>
+        <p>
+          That’s why the standard loop is: clear bosses → Overtime for silver → cash out → buy the toast you’re holding.
+          Don’t stack toasts you can’t afford — farm until the purchase is real
+          (<a href="/silver-farming/">Silver farming</a>).
+        </p>
+      </section>
+
+      <section class="rankings-section" id="chains" aria-labelledby="chains-heading">
+        <h2 id="chains-heading">All verified unlock chains</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Do this</th>
+                <th>Opens</th>
+              </tr>
+            </thead>
+            <tbody>
+              {chains.map((c) => (
+                <tr>
+                  <td>{c.action}</td>
+                  <td><strong>{c.opens}</strong></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="meta-note">
+          Also buyable in the loadout once unlocked: Turret Layer, Side Ballista, Fire Crew, Side Barracks, Companion,
+          Fire Mage. Slot notes: <a href="/best-modules/">Best modules</a>.
+        </p>
+      </section>
+
+      <section class="guide-section" id="silver-shop">
+        <h2>How do I unlock Companion (and other modules) in the shop?</h2>
+        <p>
+          <strong>Answer:</strong> Companion is the cleanest example of the two-step rule: destroy <strong>120 walking
+          enemies overall</strong> (lifetime counter, multiple runs), receive the unlock toast, then buy Companion with
+          silver in the loadout — and remember it needs a <strong>back slot</strong>, so skip Spiderberg that run.
+        </p>
+        <p>
+          The shop shows kit text on each card (Racer Ruth and The Count are read aloud on tape; Tankbert’s card shows a
+          1,500 silver price). What no tape or still has shown: a full price grid. We won’t invent one — treat any
+          “complete price list” you see elsewhere as fiction.
+        </p>
+        <p>
+          Silver sources, ranked: Overtime after a clean four-boss clear, quest lumps (the 500 / 2,500 silver counters
+          above), then the end-of-run bank. Routes: <a href="/silver-farming/">Silver farming</a>.
+        </p>
+      </section>
+
+      <section class="guide-section" id="buy-order">
+        <h2>First-week buy order — what to unlock first</h2>
+        <p>
+          <strong>Answer:</strong> Buy the toast that extends the family you already run — for most players that’s
+          <strong>Front Cannon</strong> first.
+        </p>
+        <div class="decision-tree">
+          <ul>
+            <li><strong>Front Cannon</strong> (side cannons 10) — biggest early power spike for the default kit.</li>
+            <li><strong>Arms</strong> (ram 10) — if you’re on the ram / Overtime-mobility line.</li>
+            <li><strong>Repair Crew</strong> (100 health boxes) — passive sustain that makes long Overtime sits safe.</li>
+            <li><strong>Companion</strong> (120 walking enemies) — a real friendly unit, but only with a back slot free.</li>
+            <li><strong>Captains</strong> — after the module core; pick by family (Pirate → cannons), not by vibes: <a href="/captains-tier-list/">honest captain comparison</a>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="guide-section" id="vehicles">
+        <h2>Vehicles — what’s verified</h2>
+        <p>
+          Vehicles live in the same between-run loadout. Verified so far: <strong>Spiderberg</strong> comes from
+          Golden Dunes’ four bosses (toast, then buy) and has <strong>no back slot</strong> — it eats the slot Companion
+          needs. <strong>Tankenburg</strong> (“Bulldoze everything!”) is the other named EA vehicle on the achievement
+          list; its unlock condition isn’t readable on our tapes yet.
+        </p>
+        <p>
+          Some hulls get <strong>two top slots</strong> — worth checking on any vehicle before you buy, because it
+          doubles the mortar / turret line. Full boss-to-unlock chain: <a href="/bosses/">Bosses</a>.
+        </p>
+      </section>
+
+      <section class="guide-section" id="faq">
+        <h2>FAQ</h2>
+        <h3>Why can’t I buy Front Cannon after the toast?</h3>
+        <p>
+          <strong>Answer:</strong> The toast only opens the purchase — you still need the silver. Farm Overtime after a
+          clean boss clear, then buy. If the shop doesn’t show it at all, you’re on an older save — the toast fires
+          again next time the condition completes.
+        </p>
+        <h3>Do unlock counters reset between runs?</h3>
+        <p>
+          <strong>Answer:</strong> “Overall” counters (health boxes, walking enemies, sheep consumed) are lifetime —
+          they accumulate across runs. “In one run” counters (100 units for the 500-silver lump) must happen inside a
+          single run.
+        </p>
+        <h3>What unlocks artifacts?</h3>
+        <p>
+          <strong>Answer:</strong> Artifacts are named in the official between-run unlocks, but we don’t yet have a
+          verified unlock condition for a single artifact on EN tape — it’s the top entry on our still-checking list.
+        </p>
+      </section>
+
+      <div class="crosslinks">
+        <strong>Next:</strong>
+        <a href="/best-modules/">Best modules</a> ·
+        <a href="/bosses/">Bosses</a> ·
+        <a href="/silver-farming/">Silver farming</a> ·
+        <a href="/">Home</a>
+      </div>
+
+      <details class="still-checking">
+        <summary>Still checking</summary>
+        <ul>
+          <li>Shop silver prices — only Tankbert’s 1,500 is card-verified.</li>
+          <li>Tankenburg unlock condition; artifact unlock conditions.</li>
+          <li>Exact slots for Cannon Tower / Force Mage.</li>
+          <li>0.9.9 patch string not confirmed on Steam news.</li>
+        </ul>
+      </details>
+    </article>
+
+    <aside class="toc" aria-label="On this page">
+      <p class="toc-label">On this page</p>
+      <nav>
+        {toc.map((item, i) => (
+          <a href={item.href} class={i === 0 ? 'is-active' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>

@@ -1,0 +1,469 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Wanderburg Build Planner — Slot-by-Slot Builder with Verified Pairings (0.9.9 EA)';
+const description =
+  'Pick a captain, fill front / side / top / back slots, and get verified synergy hints: Pirate → cannons, Companion needs a back slot, Spiderberg has no back, Tankbert wants a Booster. Share your build by link.';
+
+const ogImage = 'https://wanderburgguide.site/images/modules/still-battle-a.jpg';
+const heroSrc = '/images/modules/still-battle-a.jpg';
+
+const captains = [
+  'Norbert The Normal',
+  'Patchy The Pirate',
+  'The Count',
+  'Racer Ruth',
+  'Tankbert',
+  'Pyromaniac',
+  'Time Witch',
+  'Duelist',
+  'Empress (PT tape)',
+];
+const frontOptions = ['Front Ram', 'Front Cannon', 'Arms'];
+const sideOptions = ['Side Cannons', 'Side Ballista', 'Archer Tower', 'Side Barracks'];
+const topOptions = ['Top Mortar', 'Turret Layer'];
+const backOptions = ['Mine Layer', 'Companion', 'Booster'];
+
+const presets = [
+  {
+    label: 'Default EA kit',
+    v: { captain: 'Norbert The Normal', front: 'Front Ram', side: 'Side Cannons', top: 'Top Mortar', back: 'Mine Layer', vehicle: 'default' },
+  },
+  {
+    label: 'Cannons + Pirate',
+    v: { captain: 'Patchy The Pirate', front: 'Front Cannon', side: 'Side Cannons', top: 'Top Mortar', back: 'Mine Layer', vehicle: 'default' },
+  },
+  {
+    label: 'Turrets + arrows',
+    v: { captain: 'Norbert The Normal', front: 'Front Ram', side: 'Archer Tower', top: 'Turret Layer', back: 'Mine Layer', vehicle: 'default' },
+  },
+  {
+    label: 'Ram + mines OT kite',
+    v: { captain: 'The Count', front: 'Front Ram', side: 'Side Cannons', top: 'Top Mortar', back: 'Mine Layer', vehicle: 'default' },
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/builds/">
+  <div class="editorial-hero">
+    <img
+      src={heroSrc}
+      alt="Wanderburg battle — a planned build mid-fight"
+      width="1920"
+      height="1080"
+      fetchpriority="high"
+    />
+  </div>
+
+  <div class="editorial-layout">
+    <article class="editorial-main">
+      <h1>Build Planner</h1>
+      <p class="page-meta">Last Updated · Sep 13, 2026 · Early Access · data from verified card stills</p>
+      <p class="editorial-intro">
+        Fill the four slots, pick a captain, get honest hints — every hint on this tool traces to a card still or a
+        tape, and conflicts (like Companion on Spiderberg) are flagged before they cost you silver.
+      </p>
+
+      <section class="takeaways" id="key-takeaways">
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li>One damage family per build: cannons+mortar, turrets+arrows, or fire+ballista.</li>
+          <li><strong>Companion needs the back slot</strong> — Spiderberg has none.</li>
+          <li>Patchy boosts <strong>cannons only</strong> (+100%); mortar is not a cannon.</li>
+          <li>Tankbert’s -50% nitro regen wants a <strong>Booster</strong> somewhere in the plan.</li>
+        </ul>
+      </section>
+
+      <section class="guide-section" id="planner" aria-label="Build planner">
+        <div class="planner-grid">
+          <label class="pl-field">
+            <span>Captain</span>
+            <select id="pl-captain">
+              <option value="">— pick a captain —</option>
+              {captains.map((c) => <option value={c}>{c}</option>)}
+            </select>
+          </label>
+          <label class="pl-field">
+            <span>Front slot</span>
+            <select id="pl-front">
+              <option value="">— empty —</option>
+              {frontOptions.map((c) => <option value={c}>{c}</option>)}
+            </select>
+          </label>
+          <label class="pl-field">
+            <span>Side slot</span>
+            <select id="pl-side">
+              <option value="">— empty —</option>
+              {sideOptions.map((c) => <option value={c}>{c}</option>)}
+            </select>
+          </label>
+          <label class="pl-field">
+            <span>Top slot</span>
+            <select id="pl-top">
+              <option value="">— empty —</option>
+              {topOptions.map((c) => <option value={c}>{c}</option>)}
+            </select>
+          </label>
+          <label class="pl-field">
+            <span>Back slot</span>
+            <select id="pl-back">
+              <option value="">— empty —</option>
+              {backOptions.map((c) => <option value={c}>{c}</option>)}
+            </select>
+          </label>
+          <label class="pl-field">
+            <span>Vehicle</span>
+            <select id="pl-vehicle">
+              <option value="default">Default hull</option>
+              <option value="spiderberg">Spiderberg (no back)</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="pl-presets" id="pl-presets" aria-label="Starter presets">
+          <span class="meta-note">Presets:</span>
+          {presets.map((p) => (
+            <button type="button" class="pl-preset" data-preset={JSON.stringify(p.v)}>{p.label}</button>
+          ))}
+        </div>
+
+        <div class="pl-output">
+          <div class="pl-output-head">
+            <h2>Build hints</h2>
+            <button type="button" id="pl-copy" class="pl-copy">Copy share link</button>
+          </div>
+          <ul id="pl-hints" aria-live="polite"></ul>
+        </div>
+      </section>
+
+      <section class="guide-section" id="slots">
+        <h2>What fits where (verified slots)</h2>
+        <div class="slot-diagram" aria-label="Module slot layout">
+          <div class="slot slot-wide"><strong>Top</strong> Top Mortar · Turret Layer (some hulls: two top)</div>
+          <div class="slot"><strong>Side</strong> Side Cannons · Side Ballista · Archer Tower · Side Barracks</div>
+          <div class="slot"><strong>Front</strong> Front Ram · Front Cannon · Arms</div>
+          <div class="slot"><strong>Back</strong> Mine Layer · Companion · Booster — <em>Spiderberg: none</em></div>
+        </div>
+        <p>
+          Modules left off this planner on purpose: Fire Mage, Cannon Tower, Force Mage — their exact slots aren’t
+          verified yet (<a href="/best-modules/">Best modules</a> keeps the full still-checking list). Lock types and
+          unlock chains: <a href="/unlocks/">Unlock conditions</a>.
+        </p>
+      </section>
+
+      <section class="guide-section" id="how">
+        <h2>How the hints work</h2>
+        <p>
+          <strong>Answer:</strong> Each hint is a rule over <strong>verified card text</strong> — Patchy’s +100% cannon
+          line, Ruth’s boost trade, Companion’s back-slot requirement, Spiderberg’s missing back. Nothing here models
+          DPS or prices we haven’t seen; hints say <em>why</em> with the evidence on the guide pages.
+        </p>
+        <p>
+          The tool is shareable: hit <strong>Copy share link</strong> and the full build rides in the URL — no accounts,
+          no tracking beyond the site’s standard analytics.
+        </p>
+      </section>
+
+      <section class="guide-section" id="faq">
+        <h2>FAQ</h2>
+        <h3>What’s the best starter build?</h3>
+        <p>
+          <strong>Answer:</strong> The Default EA kit preset: side cannons / ram / mortar / mines on Norbert. Every EA
+          tape starts there, and it feeds straight into the Front Cannon spike (<a href="/best-modules/">Best
+          modules</a>).
+        </p>
+        <h3>Can I run two families at once?</h3>
+        <p>
+          <strong>Answer:</strong> You can mount them, but the verified advice is not to: relics that buff “all top /
+          all back / all arrow abilities” only pay when one family is deep. Finish one engine first, then diversify.
+        </p>
+        <h3>Where are artifacts in the planner?</h3>
+        <p>
+          <strong>Answer:</strong> Coming — artifacts are a confirmed between-run unlock, but no single artifact’s
+          unlock condition or effect is card-verified yet. The moment one is readable on tape, the planner grows an
+          artifact slot.
+        </p>
+      </section>
+
+      <div class="crosslinks">
+        <strong>Next:</strong>
+        <a href="/best-modules/">Best modules</a> ·
+        <a href="/captains/">Captains</a> ·
+        <a href="/silver-farming/">Silver farming</a> ·
+        <a href="/">Home</a>
+      </div>
+    </article>
+
+    <aside class="toc" aria-label="On this page">
+      <p class="toc-label">On this page</p>
+      <nav>
+        <a href="#planner" class="is-active">Planner</a>
+        <a href="#slots">Verified slots</a>
+        <a href="#how">How hints work</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .planner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .pl-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .pl-field select {
+    background: #0a0c08;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem;
+    font: inherit;
+  }
+  .pl-presets {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.9rem 0 0;
+  }
+  .pl-preset {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.3rem 0.8rem;
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  .pl-preset:hover {
+    border-color: var(--green);
+  }
+  .pl-output {
+    margin-top: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+  .pl-output-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .pl-output-head h2 {
+    margin: 0;
+    border: none;
+    padding: 0;
+  }
+  .pl-copy {
+    background: var(--green);
+    color: #fff;
+    border: 1px solid var(--green-bright);
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  #pl-hints {
+    margin: 0.8rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+  }
+  #pl-hints li {
+    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #0a0c08;
+    font-size: 0.88rem;
+  }
+  #pl-hints li.hint-good { border-color: var(--green); }
+  #pl-hints li.hint-warn { border-color: #b3542e; }
+  #pl-hints li.hint-note { color: var(--muted); }
+</style>
+
+<script>
+  const CAPTAIN_HINTS: Record<string, string[]> = {
+    'Norbert The Normal': ['good', 'Norbert is the safe any-kit default — nothing on his card punishes a slot choice.'],
+    'Patchy The Pirate': ['good', 'Patchy: all cannons +100% damage — enemies too. Cannons only: Side Cannons / Front Cannon. Mortar is NOT a cannon.'],
+    'The Count': ['good', 'The Count heals by consuming units (health boxes stop spawning) — built for long Overtime sits next to Repair Crew.'],
+    'Racer Ruth': ['good', 'Ruth: +50% speed when boosting, lower normal drive. Kite Overtime; slower cruising wants mines or a ram ahead.'],
+    Tankbert: ['warn', 'Tankbert: HP grows on vehicle kills, but nitro regen takes -50% — plan a Booster or ram for mobility.'],
+    Pyromaniac: ['note', 'Pyromaniac leans fire + ballista (Fire Crew + Side Ballista). Kit text is sparse on tape — confirm the tooltip before buying.'],
+    'Time Witch': ['note', 'Time Witch kit text is not fully verified on EN tapes — read the loadout tooltip before spending silver.'],
+    Duelist: ['note', 'Duelist has no verified melee/ram link on tape yet — confirm in the loadout before buying.'],
+    'Empress (PT tape)': ['warn', 'Empress doubles friendly units but halves your speed — bring ram / booster / nitro, and expect an Overtime tax.'],
+  };
+
+  const MODULE_HINTS: Record<string, string[]> = {
+    'Front Cannon': ['note', 'Front Cannon unlock: side cannons to level 10, then buy with silver (toast ≠ owned).'],
+    Arms: ['note', 'Arms unlock: Front Ram to level 10, then buy with silver.'],
+    'Archer Tower': ['note', 'Archer Tower unlock: archer crew to level 10 (seen on fewer tapes).'],
+    Companion: ['note', 'Companion unlock: destroy 120 walking enemies overall, then buy — it needs the BACK slot.'],
+  };
+
+  const sel = (id: string) => document.getElementById(id) as HTMLSelectElement;
+  const captain = sel('pl-captain');
+  const front = sel('pl-front');
+  const side = sel('pl-side');
+  const top = sel('pl-top');
+  const back = sel('pl-back');
+  const vehicle = sel('pl-vehicle');
+  const hintsEl = document.getElementById('pl-hints')!;
+  const copyBtn = document.getElementById('pl-copy') as HTMLButtonElement;
+
+  type Kind = 'good' | 'warn' | 'note';
+  const hints: { kind: Kind; text: string }[] = [];
+
+  function add(kind: Kind, text: string) {
+    hints.push({ kind, text });
+  }
+
+  function evaluate() {
+    hints.length = 0;
+    const c = captain.value;
+    const f = front.value;
+    const s = side.value;
+    const t = top.value;
+    const b = back.value;
+    const isSpiderberg = vehicle.value === 'spiderberg';
+
+    if (!c && !f && !s && !t && !b) {
+      add('note', 'Start from the starter four: Side Cannons / Front Ram / Top Mortar / Mine Layer — or tap a preset.');
+    }
+
+    if (c && CAPTAIN_HINTS[c]) add(CAPTAIN_HINTS[c][0] as Kind, CAPTAIN_HINTS[c][1]);
+
+    if (c === 'Patchy The Pirate') {
+      if (s === 'Side Cannons' || f === 'Front Cannon') {
+        add('good', 'Cannon line online: Patchy’s +100% applies to Side Cannons and Front Cannon.');
+      } else {
+        add('warn', 'Patchy boosts cannons only — mount Side Cannons or Front Cannon or his card does nothing for you.');
+      }
+    }
+    if (c === 'Pyromaniac') {
+      if (s === 'Side Ballista') add('good', 'Fire + ballista line: Side Ballista mounted — pair Fire Crew in-run for the crater synergy.');
+      else add('warn', 'Pyromaniac wants Side Ballista in the side slot to anchor the fire+ballista family.');
+    }
+    if (c === 'Tankbert') {
+      if (f === 'Front Ram' || f === 'Arms') add('good', 'Tankbert’s HP growth on vehicle kills fits the ram line in front.');
+      if (b === 'Booster') add('good', 'Booster in back offsets Tankbert’s -50% nitro regen.');
+    }
+    if (c === 'The Count' && b === 'Booster') {
+      add('good', 'Count + Booster: sustain plus mobility is the long-Overtime combo.');
+    }
+    if (c === 'Racer Ruth' && (b === 'Mine Layer' || f === 'Front Ram')) {
+      add('good', 'Ruth’s boost kite covers her slow cruise — mines/ram punish whatever chases you.');
+    }
+    if (c === 'Empress (PT tape)') {
+      if (b === 'Companion') add('good', 'Empress doubles Companions: two hammer robots — at half speed.');
+      if (s === 'Side Barracks') add('good', 'Empress doubles friendly units: barracks troops count.');
+    }
+
+    if (isSpiderberg && b) {
+      add('warn', 'CONFLICT: Spiderberg has no back slot — the back pick can’t mount on this hull.');
+    }
+    if (!isSpiderberg && b === 'Companion') {
+      add('note', 'Companion occupies the back slot — Booster and Mine Layer won’t fit this run.');
+    }
+    if (b === 'Companion' && s === 'Side Barracks') {
+      add('good', 'Friendly-units stack: Companion + Side Barracks (Empress doubles both).');
+    }
+    if (t === 'Turret Layer') {
+      if (s === 'Archer Tower') add('good', 'Turrets+arrows family: drop the turret, kite, chase the arrow-CD relic.');
+      else add('note', 'Turret Layer scales with the arrow family — Archer Tower / arrow kit is the next mount.');
+    }
+    if (t === 'Top Mortar' && s === 'Side Cannons') {
+      add('good', 'Classic cannons+mortar baseline — the default EA engine.');
+    }
+    if (b === 'Mine Layer' && (f === 'Front Ram' || f === 'Arms')) {
+      add('good', 'Ram + mines: the standard Overtime mobility kit — keep moving, leave mines behind.');
+    }
+
+    for (const [mod, h] of Object.entries(MODULE_HINTS)) {
+      if ([f, s, t, b].includes(mod)) add(h[0] as Kind, h[1]);
+    }
+
+    if (!hints.length) add('note', 'Pick a captain and at least one module to see verified pairings.');
+
+    hintsEl.innerHTML = '';
+    for (const h of hints) {
+      const li = document.createElement('li');
+      li.className = `hint-${h.kind}`;
+      li.textContent = (h.kind === 'warn' ? '⚠ ' : h.kind === 'good' ? '✓ ' : 'ℹ ') + h.text;
+      hintsEl.appendChild(li);
+    }
+  }
+
+  function syncUrl() {
+    const p = new URLSearchParams();
+    if (captain.value) p.set('c', captain.value);
+    if (front.value) p.set('f', front.value);
+    if (side.value) p.set('s', side.value);
+    if (top.value) p.set('t', top.value);
+    if (back.value) p.set('b', back.value);
+    if (vehicle.value !== 'default') p.set('v', vehicle.value);
+    const url = `${location.origin}/builds/${p.toString() ? '?' + p.toString() : ''}`;
+    history.replaceState(null, '', url);
+  }
+
+  function loadFromUrl() {
+    const p = new URLSearchParams(location.search);
+    if (p.get('c')) captain.value = p.get('c')!;
+    if (p.get('f')) front.value = p.get('f')!;
+    if (p.get('s')) side.value = p.get('s')!;
+    if (p.get('t')) top.value = p.get('t')!;
+    if (p.get('b')) back.value = p.get('b')!;
+    if (p.get('v')) vehicle.value = p.get('v')!;
+  }
+
+  function update() {
+    evaluate();
+    syncUrl();
+  }
+
+  for (const el of [captain, front, side, top, back, vehicle]) el.addEventListener('change', update);
+
+  document.querySelectorAll<HTMLButtonElement>('.pl-preset').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const v = JSON.parse(btn.dataset.preset!);
+      captain.value = v.captain ?? '';
+      front.value = v.front ?? '';
+      side.value = v.side ?? '';
+      top.value = v.top ?? '';
+      back.value = v.back ?? '';
+      vehicle.value = v.vehicle ?? 'default';
+      update();
+    });
+  });
+
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => (copyBtn.textContent = 'Copy share link'), 1500);
+    } catch {
+      copyBtn.textContent = location.href;
+      setTimeout(() => (copyBtn.textContent = 'Copy share link'), 2500);
+    }
+  });
+
+  loadFromUrl();
+  evaluate();
+</script>
