@@ -8,7 +8,8 @@ Place local copies under `public/images/` when shipping. Until then, pages use S
 
 ## /best-modules/ hero (Choose New Module)
 - Local path (from IMAGE-MAPPING): `steam/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.jpg`
-- Steam CDN pattern: `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.jpg`
+- Working Steam CDN (verified 200; needs hash folder like header_alt): `https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/36b03816140674eb040db96cec090854044dff5d/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.jpg`
+- Local: `ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.jpg`
 - Press/official: `press/22.png`, `official/Wanderburg_Screenshot_02-2048x1152.png`
 
 ## /silver-farming/ hero (Steam/official only — not YT)
@@ -44,7 +45,7 @@ Root on designer side: `assets/captains/`
 - `captain_roster_icons_Jeh4-Sdx_3A_466.jpg`
 
 ## Placeholders currently in repo
-- `og-modules.svg` — conceptual Choose New Module OG
+- `og-modules.svg` — legacy conceptual OG (superseded by Steam still above)
 - `og-header.svg` — header-style OG for home/silver
 - `placeholder.svg` — generic
 

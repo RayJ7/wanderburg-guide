@@ -378,3 +378,21 @@ code {
 .changelog h3 {
   color: var(--muted);
 }
+
+.expectation-banner {
+  margin: 1rem 0 1.25rem;
+  padding: 0.9rem 1.1rem;
+  background: #3a2410;
+  border: 2px solid var(--warn);
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.15);
+}
+.expectation-banner p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #f5e6c8;
+}
+.expectation-banner strong {
+  color: #ffd666;
+}
