@@ -58,17 +58,18 @@ const path = Astro.url.pathname;
       <div class="header-slice-wrap">
         <img
           class="header-slice-img"
-          src="/images/ui/slices/home/home-header.png"
+          src="/images/ui/slices/modules/modules-header.png"
           width="1280"
-          height="71"
-          alt="Wanderburg Guide navigation"
+          height="79"
+          alt="Wanderburg Best Modules Guide navigation"
         />
+        <a class="hs hs-logo" href="/"><span class="sr-only">Wanderburg home</span></a>
         <nav class="header-hotspots" aria-label="Primary">
-          <a class="hs hs-home" href="/" aria-current={path === '/' ? 'page' : undefined}><span class="sr-only">Home</span></a>
-          <a class="hs hs-modules" href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}><span class="sr-only">Best Modules</span></a>
-          <a class="hs hs-silver" href="/silver-farming/" aria-current={path.startsWith('/silver-farming') ? 'page' : undefined}><span class="sr-only">Silver Farming</span></a>
-          <a class="hs hs-captains" href="/captains/" aria-current={path.startsWith('/captains') && !path.startsWith('/captains-tier-list') ? 'page' : undefined}><span class="sr-only">Captains</span></a>
-          <a class="hs hs-contact" href="/contact/" aria-current={path.startsWith('/contact') ? 'page' : undefined}><span class="sr-only">Contact</span></a>
+          <a class="hs hs-build" href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}><span class="sr-only">Build</span></a>
+          <a class="hs hs-mymodules" href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}><span class="sr-only">My Modules</span></a>
+          <a class="hs hs-map" href="/" aria-current={path === '/' ? 'page' : undefined}><span class="sr-only">Map</span></a>
+          <a class="hs hs-resources" href="/silver-farming/" aria-current={path.startsWith('/silver-farming') ? 'page' : undefined}><span class="sr-only">Resources</span></a>
+          <a class="hs hs-guides" href="/captains/" aria-current={path.startsWith('/captains') && !path.startsWith('/captains-tier-list') ? 'page' : undefined}><span class="sr-only">Guides</span></a>
         </nav>
       </div>
     </header>

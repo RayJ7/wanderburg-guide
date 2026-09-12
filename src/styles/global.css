@@ -1573,6 +1573,13 @@ details.still-checking[open] summary {
   margin: 0;
   padding: 0;
 }
+.header-slice-wrap > .hs-logo {
+  position: absolute;
+  display: block;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: transparent;
+}
 .header-hotspots .hs {
   position: absolute;
   top: 18%;
@@ -1588,11 +1595,12 @@ details.still-checking[open] summary {
   outline-offset: -2px;
   background: rgba(255, 255, 255, 0.06);
 }
-.hs-home { left: 22%; width: 8%; }
-.hs-modules { left: 31%; width: 11%; }
-.hs-silver { left: 43%; width: 12%; }
-.hs-captains { left: 56%; width: 9%; }
-.hs-contact { left: 66%; width: 8%; }
+.hs-logo { left: 2%; width: 26%; top: 10%; height: 80%; }
+.hs-build { left: 31%; width: 8%; }
+.hs-mymodules { left: 40%; width: 11%; }
+.hs-map { left: 52%; width: 8%; }
+.hs-resources { left: 61%; width: 10%; }
+.hs-guides { left: 72%; width: 8%; }
 .sr-only {
   position: absolute;
   width: 1px;
