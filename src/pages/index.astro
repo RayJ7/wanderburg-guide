@@ -7,48 +7,54 @@ const description =
 const ogImage = 'https://wanderburgguide.site/images/home-hero.jpg';
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/">
-  <img
-    class="hero-img"
-    src="/images/home-hero.jpg"
-    alt="Wanderburg — castle on wheels shop hero"
-    width="1200"
-    height="630"
-    fetchpriority="high"
-  />
-  <p class="hero-caption">Finish a run. Spend silver. Unlock the next toy.</p>
-
-  <h1>Wanderburg Guide</h1>
-  <p class="lead">
-    Castle-on-wheels roguelike. These three pages tell you what to mount, when to cash out, and which captain fits your kit.
-  </p>
-
-  <div class="do-now">
-    <h2>Do this now</h2>
-    <ul>
-      <li>Learn the four slots — front, side, top, back — before you buy anything.</li>
-      <li>Spend <strong>silver</strong> between runs. In-run <strong>gold</strong> only buys level-ups.</li>
-      <li>Clear four bosses, then enter <strong>Overtime</strong> if you still have HP.</li>
-      <li>Pair captains to modules (Pirate → cannons; Empress → Companion).</li>
-    </ul>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/" shell="wood">
+  <div class="home-hero">
+    <img
+      src="/images/home-hero.jpg"
+      alt="Wanderburg — castle on wheels rolling through green hills"
+      width="1200"
+      height="630"
+      fetchpriority="high"
+    />
+    <div class="home-hero-overlay">
+      <h1>Master the Mobile Fortress</h1>
+      <p class="lead">Build smarter. Command stronger. Wander further.</p>
+      <a class="cta-btn" href="/best-modules/">Start with modules →</a>
+    </div>
   </div>
 
   <div class="card-grid cards-3">
-    <a class="card" href="/best-modules/">
-      <h2>Best Modules</h2>
-      <p>Slot chart + what to mount. Unlock → buy chains. Build families.</p>
+    <a class="entry-card" href="/best-modules/">
+      <div class="card-icon" aria-hidden="true">🧩</div>
+      <h2>Module Slot Guide</h2>
+      <p>Front, side, top, back — what to mount and unlock→buy chains. Real modules only.</p>
+      <div class="card-tag">Beginner to Endgame</div>
+      <span class="cta-btn block">Read guide →</span>
     </a>
-    <a class="card" href="/silver-farming/">
-      <h2>Silver Farming</h2>
-      <p>When to Overtime. When to cash out. Quests that pay lump silver.</p>
+    <a class="entry-card" href="/silver-farming/">
+      <div class="card-icon icon-silver" aria-hidden="true">📜</div>
+      <h2>Silver Decision Tree</h2>
+      <p>When to Overtime after four bosses. When to cash out. Quest lumps that pay.</p>
+      <div class="card-tag">When to cash out</div>
+      <span class="cta-btn block">Explore tree →</span>
     </a>
-    <a class="card" href="/captains/">
-      <h2>Captains</h2>
-      <p>Unlock / role / pairing. Who warps which module line.</p>
+    <a class="entry-card" href="/captains/">
+      <div class="card-icon icon-captains" aria-hidden="true">⛑️</div>
+      <h2>Captains Pairing</h2>
+      <p>Unlock / role / pairing for the EN roster. Pirate → cannons. No fake tiers.</p>
+      <div class="card-tag">Find Your Perfect Crew</div>
+      <span class="cta-btn block">View pairings →</span>
     </a>
   </div>
 
-  <p class="meta-note">
+  <div class="status-bar" role="contentinfo">
+    <span>🛡 Built for Wanderburg players</span>
+    <span>🌿 Player-first guides</span>
+    <span>⚒ Game-accurate info</span>
+    <span class="tagline">Wander bold. Command well.</span>
+  </div>
+
+  <p class="meta-note" style="margin-top:1rem;text-align:center;">
     Unofficial · Steam app 3624140 · EA since 8 Sep 2026 · Randwerk / Sidekick Publishing · editorial label 0.9.9
   </p>
 </BaseLayout>

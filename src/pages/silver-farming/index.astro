@@ -9,150 +9,159 @@ const ogImage =
   'https://wanderburgguide.site/images/ss_036989f9c5ee7df8dc8dbbbd7f22b5e9109dda31.1920x1080.jpg';
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/silver-farming/">
-  <img
-    class="hero-img"
-    src={heroSrc}
-    alt="Wanderburg camp hub / shop still"
-    width="1920"
-    height="1080"
-    fetchpriority="high"
-  />
-  <p class="hero-caption">Silver buys the loadout. Overtime pays the silver.</p>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/silver-farming/" shell="parchment">
+  <div class="guide-layout">
+    <div class="parchment-panel">
+      <img
+        class="hero-img"
+        src={heroSrc}
+        alt="Wanderburg camp hub / shop still"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+      />
+      <p class="hero-caption">Silver buys the loadout. Overtime pays the silver.</p>
 
-  <h1>Wanderburg Silver Farming (0.9.9 EA)</h1>
+      <h1>Silver Decision Tree</h1>
+      <p class="lead" style="text-align:center;">
+        Gold vs silver, when to Overtime after four bosses, when to cash out. No invented formulas.
+      </p>
 
-  <div class="do-now">
-    <h2>Do this now</h2>
-    <ol>
-      <li>Stop mixing currencies: <strong>gold = in-run level-ups</strong>. <strong>Silver = between-run shop</strong>.</li>
-      <li>Clear the map’s <strong>four bosses</strong>.</li>
-      <li>Still have HP and a clear field? Enter <strong>Overtime</strong>. Brick mid-fight? Cash out.</li>
-      <li>Farm a map you can full-clear — a 1.3× tag is useless if you never reach OT.</li>
-      <li>Knock out lifetime quests (100 units, health boxes) for lump silver / unlocks.</li>
-    </ol>
+      <h2>Decision tree</h2>
+      <div class="decision-tree">
+        <h3>1. Can you clear four bosses on this map?</h3>
+        <ul>
+          <li><strong>No</strong> → drop difficulty / map. You need the OT prompt.</li>
+          <li><strong>Yes</strong> → go to step 2.</li>
+        </ul>
+
+        <h3>2. After boss four — enter Overtime or end screen?</h3>
+        <ul>
+          <li><strong>Enter OT</strong> if HP is fine, field is clear, and you can kite. Enemies speed up. Meter pays silver while you live.</li>
+          <li><strong>Cash out</strong> if you’re one hit from death, a boss is still on the field, or your kit has no mobility. Silver already earned stays banked.</li>
+        </ul>
+
+        <h3>3. How long do you stay?</h3>
+        <ul>
+          <li>Leave when survival breaks. Players say longer OT feels better — we don’t have a formula, so don’t greed a dead run.</li>
+          <li>Speed / nitro / ram help. Empress half-speed is an OT risk — see <a href="/captains/">Captains</a>.</li>
+        </ul>
+
+        <h3>4. Map choice</h3>
+        <ul>
+          <li>Green Plains → clear four bosses → unlock Golden Dunes.</li>
+          <li>Golden Dunes → clear four → Spiderberg unlock toast (still buy with silver).</li>
+          <li>Dusky Pines spoken as difficulty 3 with <strong>1.3× silver</strong> — only if you can still full-clear + OT.</li>
+          <li>Wasteland called hardest — skip until your kit survives.</li>
+        </ul>
+      </div>
+
+      <h2>Gold vs silver</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th></th><th>Gold</th><th>Silver</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>When</strong></td>
+              <td>During the run — eat villages, flocks, enemies</td>
+              <td>Meta — Overtime, quests, end-of-run bank</td>
+            </tr>
+            <tr>
+              <td><strong>Buys</strong></td>
+              <td>Level-ups and in-run upgrades</td>
+              <td>Loadout: modules, crew, vehicles, captains</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Creators sometimes say “gold” while standing in the shop. Follow the UI word <strong>silver</strong> for meta spend.
+        Mortar “gold collection records” are in-run gold — not a silver route.
+      </p>
+
+      <h2>Overtime loop (primary farm)</h2>
+      <ol>
+        <li>Beat the map’s four bosses.</li>
+        <li>UI offers: end screen <strong>or</strong> Overtime for extra silver / beat a record.</li>
+        <li>Survive while silver ticks. Enemies go crazy.</li>
+        <li>Cash out before you die.</li>
+      </ol>
+      <p>
+        That’s the loop. No silver-per-minute sheet — we won’t invent one.
+      </p>
+
+      <h2>Quest lumps</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Quest</th><th>Pays / unlocks</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Consume <strong>100 units in one run</strong></td><td><strong>500 silver</strong></td></tr>
+            <tr><td>Consume <strong>1,000 sheep overall</strong></td><td><strong>2,500 silver</strong> (reported)</td></tr>
+            <tr><td>Destroy <strong>100 health boxes overall</strong></td><td>Unlock <strong>Repair Crew</strong></td></tr>
+            <tr><td>Destroy <strong>120 walking enemies overall</strong></td><td>Unlock <strong>Companion</strong> (reported)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Daily quests exist; reset rules unclear — don’t plan a schedule around them yet.</p>
+
+      <h2>Why silver matters</h2>
+      <p>
+        Unlock toast in a run only lets you <strong>purchase it in the loadout</strong>. What to buy once you’re rich:
+        <a href="/best-modules/">Best modules</a> · <a href="/captains/">Captains</a>.
+      </p>
+      <p>No shop price grid on this page. We don’t have verified costs.</p>
+
+      <h2>Kits that survive OT</h2>
+      <ul>
+        <li><strong>Turrets + arrows</strong> — drop turret, retreat, meter ticks.</li>
+        <li><strong>Mines + ram</strong> — keep moving; dump mines while kiting.</li>
+        <li><strong>Cannons + mortar</strong> — stay in OT once the kit is built.</li>
+        <li><strong>Mobility first</strong> — booster / nitro / ram. Half-speed captains hurt here.</li>
+      </ul>
+
+      <h2>Don’t</h2>
+      <ul>
+        <li>Cash out at four bosses with full HP and a clear field.</li>
+        <li>Chase Demo 8 mage-tower farm clips.</li>
+        <li>Treat in-run gold records as silver rates.</li>
+        <li>Quote shop prices you saw in a stream — numbers conflict and aren’t crossed.</li>
+      </ul>
+
+      <div class="crosslinks">
+        <strong>Next:</strong>
+        <a href="/best-modules/">Best modules</a> ·
+        <a href="/captains/">Captains</a> ·
+        <a href="/">Home</a>
+      </div>
+
+      <details class="still-checking">
+        <summary>Still checking</summary>
+        <ul>
+          <li>Overtime formula (start rate, step-up, cap, kill bonus) — unverified.</li>
+          <li>Shop price grid — no data worth publishing.</li>
+          <li>Shop talk that says “gold” on the between-run screen — we follow silver.</li>
+          <li>Map multipliers beyond Dusky Pines 1.3× — unknown.</li>
+          <li>Leaderboard weight (gold vs silver vs time) — unverified.</li>
+          <li>Daily quest reset rules — no data.</li>
+        </ul>
+      </details>
+    </div>
+
+    <aside class="guide-side" aria-label="Quick tips">
+      <div class="side-panel">
+        <h2>Do This Now</h2>
+        <ol>
+          <li>Stop mixing currencies: <strong>gold = in-run</strong>. <strong>Silver = between-run shop</strong>.</li>
+          <li>Clear the map’s <strong>four bosses</strong>.</li>
+          <li>Still have HP and a clear field? Enter <strong>Overtime</strong>. Brick mid-fight? Cash out.</li>
+          <li>Farm a map you can full-clear — a 1.3× tag is useless if you never reach OT.</li>
+          <li>Knock out lifetime quests for lump silver / unlocks.</li>
+        </ol>
+      </div>
+    </aside>
   </div>
-
-  <h2>Gold vs silver</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th></th><th>Gold</th><th>Silver</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>When</strong></td>
-          <td>During the run — eat villages, flocks, enemies</td>
-          <td>Meta — Overtime, quests, end-of-run bank</td>
-        </tr>
-        <tr>
-          <td><strong>Buys</strong></td>
-          <td>Level-ups and in-run upgrades</td>
-          <td>Loadout: modules, crew, vehicles, captains</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p>
-    Creators sometimes say “gold” while standing in the shop. Follow the UI word <strong>silver</strong> for meta spend.
-    Mortar “gold collection records” are in-run gold — not a silver route.
-  </p>
-
-  <h2>Decision tree</h2>
-  <div class="decision-tree">
-    <h3>1. Can you clear four bosses on this map?</h3>
-    <ul>
-      <li><strong>No</strong> → drop difficulty / map. You need the OT prompt.</li>
-      <li><strong>Yes</strong> → go to step 2.</li>
-    </ul>
-
-    <h3>2. After boss four — enter Overtime or end screen?</h3>
-    <ul>
-      <li><strong>Enter OT</strong> if HP is fine, field is clear, and you can kite. Enemies speed up. Meter pays silver while you live.</li>
-      <li><strong>Cash out</strong> if you’re one hit from death, a boss is still on the field, or your kit has no mobility. Silver already earned stays banked.</li>
-    </ul>
-
-    <h3>3. How long do you stay?</h3>
-    <ul>
-      <li>Leave when survival breaks. Players say longer OT feels better — we don’t have a formula, so don’t greed a dead run.</li>
-      <li>Speed / nitro / ram help. Empress half-speed is an OT risk — see <a href="/captains/">Captains</a>.</li>
-    </ul>
-
-    <h3>4. Map choice</h3>
-    <ul>
-      <li>Green Plains → clear four bosses → unlock Golden Dunes.</li>
-      <li>Golden Dunes → clear four → Spiderberg unlock toast (still buy with silver).</li>
-      <li>Dusky Pines spoken as difficulty 3 with <strong>1.3× silver</strong> — only if you can still full-clear + OT.</li>
-      <li>Wasteland called hardest — skip until your kit survives.</li>
-    </ul>
-  </div>
-
-  <h2>Overtime loop (primary farm)</h2>
-  <ol>
-    <li>Beat the map’s four bosses.</li>
-    <li>UI offers: end screen <strong>or</strong> Overtime for extra silver / beat a record.</li>
-    <li>Survive while silver ticks. Enemies go crazy.</li>
-    <li>Cash out before you die.</li>
-  </ol>
-  <p>
-    That’s the loop. No silver-per-minute sheet — we won’t invent one.
-  </p>
-
-  <h2>Quest lumps</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Quest</th><th>Pays / unlocks</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Consume <strong>100 units in one run</strong></td><td><strong>500 silver</strong></td></tr>
-        <tr><td>Consume <strong>1,000 sheep overall</strong></td><td><strong>2,500 silver</strong> (reported)</td></tr>
-        <tr><td>Destroy <strong>100 health boxes overall</strong></td><td>Unlock <strong>Repair Crew</strong></td></tr>
-        <tr><td>Destroy <strong>120 walking enemies overall</strong></td><td>Unlock <strong>Companion</strong> (reported)</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>Daily quests exist; reset rules unclear — don’t plan a schedule around them yet.</p>
-
-  <h2>Why silver matters</h2>
-  <p>
-    Unlock toast in a run only lets you <strong>purchase it in the loadout</strong>. What to buy once you’re rich:
-    <a href="/best-modules/">Best modules</a> · <a href="/captains/">Captains</a>.
-  </p>
-  <p>No shop price grid on this page. We don’t have verified costs.</p>
-
-  <h2>Kits that survive OT</h2>
-  <ul>
-    <li><strong>Turrets + arrows</strong> — drop turret, retreat, meter ticks.</li>
-    <li><strong>Mines + ram</strong> — keep moving; dump mines while kiting.</li>
-    <li><strong>Cannons + mortar</strong> — stay in OT once the kit is built.</li>
-    <li><strong>Mobility first</strong> — booster / nitro / ram. Half-speed captains hurt here.</li>
-  </ul>
-
-  <h2>Don’t</h2>
-  <ul>
-    <li>Cash out at four bosses with full HP and a clear field.</li>
-    <li>Chase Demo 8 mage-tower farm clips.</li>
-    <li>Treat in-run gold records as silver rates.</li>
-    <li>Quote shop prices you saw in a stream — numbers conflict and aren’t crossed.</li>
-  </ul>
-
-  <div class="crosslinks">
-    <strong>Next:</strong>
-    <a href="/best-modules/">Best modules</a> ·
-    <a href="/captains/">Captains</a> ·
-    <a href="/">Home</a>
-  </div>
-
-  <details class="still-checking">
-    <summary>Still checking</summary>
-    <ul>
-      <li>Overtime formula (start rate, step-up, cap, kill bonus) — unverified.</li>
-      <li>Shop price grid — no data worth publishing.</li>
-      <li>Shop talk that says “gold” on the between-run screen — we follow silver.</li>
-      <li>Map multipliers beyond Dusky Pines 1.3× — unknown.</li>
-      <li>Leaderboard weight (gold vs silver vs time) — unverified.</li>
-      <li>Daily quest reset rules — no data.</li>
-    </ul>
-  </details>
 </BaseLayout>

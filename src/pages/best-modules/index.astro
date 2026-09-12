@@ -10,163 +10,183 @@ const ogImage = modulesStill;
 const heroSrc = '/images/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.jpg';
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/best-modules/">
-  <img
-    class="hero-img"
-    src={heroSrc}
-    alt="Wanderburg Choose New Module UI"
-    width="1920"
-    height="1080"
-    fetchpriority="high"
-  />
-  <p class="hero-caption">Pick a slot. Mount a gun. Buy it later with silver.</p>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/best-modules/" shell="parchment">
+  <div class="guide-layout">
+    <div class="parchment-panel">
+      <img
+        class="hero-img"
+        src={heroSrc}
+        alt="Wanderburg Choose New Module UI"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+      />
+      <p class="hero-caption">Pick a slot. Mount a gun. Buy it later with silver.</p>
 
-  <h1>Wanderburg Best Modules (0.9.9 EA)</h1>
+      <h1>Choose New Module</h1>
+      <p class="lead" style="text-align:center;">
+        Slot reference + what to mount. Real Wanderburg modules — side cannons, ram, mortar, mine layer, and unlock chains.
+      </p>
 
-  <div class="do-now">
-    <h2>Do this now</h2>
-    <ol>
-      <li>Start with the default four: <strong>side cannons, ram, mortar, mine layer</strong>.</li>
-      <li>Push side cannons to upgrade <strong>level 10</strong> → unlock Front Cannon (then buy in loadout).</li>
-      <li>Need Companion? Keep a <strong>back</strong> slot — skip Spiderberg for that run.</li>
-      <li>Pick a family: turrets+arrows, cannons+mortar, fire+ballista, or Empress+Companion.</li>
-      <li>Unlock toast ≠ owned. Silver buys it between runs — see <a href="/silver-farming/">Silver farming</a>.</li>
-    </ol>
+      <h2>Module slots</h2>
+      <div class="slot-diagram" aria-label="Module slot layout">
+        <div class="slot slot-wide"><strong>Top</strong> mortar · fire mage · (some hulls: two top)</div>
+        <div class="slot"><strong>Side</strong> cannons · ballista · barracks</div>
+        <div class="slot"><strong>Front</strong> ram · front cannon</div>
+        <div class="slot"><strong>Back</strong> mines · Companion · booster</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Slot</th><th>What goes here</th><th>Hull note</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Front</strong></td><td>Ram / Bumper ram, Front Cannon</td><td>Ram line → Arms at level 10</td></tr>
+            <tr><td><strong>Side</strong></td><td>Side cannons, Side Ballista, Side Barracks</td><td>Cannons have auto-fire + broadside ability</td></tr>
+            <tr><td><strong>Top</strong></td><td>Top mortar, Fire Mage (exists in EA)</td><td>Some hulls get <strong>two top</strong> slots</td></tr>
+            <tr><td><strong>Back</strong></td><td>Mine layer, Companion, Booster</td><td><strong>Spiderberg has no back slot</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Bindings: <strong>Q / E / R / Space</strong> plus auto-attacks. Relics can buff a whole position (“10% CD for all top modules,” “all back,” “all arrow abilities”).
+      </p>
+      <p>
+        Hulls named on tape: <strong>Wanderterm</strong> (starter), <strong>Spiderberg</strong>, <strong>Tankenberg</strong>.
+      </p>
+
+      <h2>Starter four — what you mount day one</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Module</th><th>Slot</th><th>Job</th><th>Next unlock</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Side cannons</td><td>Side</td><td>Side shots + broadside</td><td>Level 10 → <strong>Front Cannon</strong></td></tr>
+            <tr><td>Front ram</td><td>Front</td><td>Hit + shove ahead</td><td>Level 10 → <strong>Arms</strong></td></tr>
+            <tr><td>Top mortar</td><td>Top</td><td>Area volley / bombard</td><td>—</td></tr>
+            <tr><td>Mine layer</td><td>Back</td><td>Drop mines behind</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Unlock → buy</h2>
+      <p>
+        During a run you unlock. Between runs you <strong>purchase in the loadout</strong> with silver.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Do this</th><th>Opens (then buy)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Side cannons → upgrade level 10</td><td>Front Cannon</td></tr>
+            <tr><td>Ram → upgrade level 10</td><td>Arms</td></tr>
+            <tr><td>Archer crew → upgrade level 10</td><td>Archer Tower (fewer tapes)</td></tr>
+            <tr><td>Destroy 100 health boxes overall</td><td>Repair Crew</td></tr>
+            <tr><td>Destroy 120 walking enemies overall</td><td>Companion (reported)</td></tr>
+            <tr><td>Beat all four Golden Dunes bosses</td><td>Spiderberg vehicle (still buy)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Also seen for sale once unlocked: Turret Layer, Side Ballista, Fire Crew, Side Barracks, Force Mage, Fire Mage.
+        No price list here — we don’t have a verified grid.
+      </p>
+
+      <h2>What to mount (build families)</h2>
+
+      <h3>Turrets + arrows</h3>
+      <p><strong>Mount:</strong> Turret Layer, Archer Tower, Side Ballista, archer crew.</p>
+      <p>
+        Drop the turret, kite, collect gold for level-ups. Grab the relic that shortens arrow ability CDs when you kill with arrows.
+        One tape claims a #1 leaderboard run with this pile — treat as “players like it,” not a promise.
+      </p>
+
+      <h3>Cannons + mortar</h3>
+      <p><strong>Mount:</strong> Side cannons, Front Cannon, Top mortar. Cannon Tower if you have it.</p>
+      <p>
+        Pair with <a href="/captains/">Patchy the Pirate</a> if you want the cannon damage line.
+        Mortar may or may not count as “cannonball” for relics — check the upgrade text in your build.
+      </p>
+
+      <h3>Fire + ballista</h3>
+      <p><strong>Mount:</strong> Fire Crew + Side Ballista.</p>
+      <p>
+        Vehicles that die from fire leave fire craters. Good on Golden Dunes clips. Ignore Demo 8 “mage tower is broken” titles — EA balance is a different game.
+      </p>
+
+      <h3>Empress + Companion</h3>
+      <p><strong>Mount:</strong> Companion on <strong>back</strong>. Side Barracks fits the same friendly-unit idea.</p>
+      <p>
+        Empress doubles friendly units and halves your speed. Bring mobility (ram / booster) or Overtime will hurt.
+        Spiderberg cannot run Companion — no back slot. Details: <a href="/captains/">Captains</a>.
+      </p>
+
+      <h3>Also solid</h3>
+      <ul>
+        <li><strong>Ram line</strong> — shove and execute; helps OT mobility.</li>
+        <li><strong>Mine layer</strong> — kite and dump mines while the meter ticks.</li>
+        <li><strong>Merchants crew</strong> — passive gold → faster level-ups. Not a gun. Skip late merchant rolls if you never invested.</li>
+      </ul>
+
+      <h2>Crew (not siege slots)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Crew</th><th>Job</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Archer crew</td><td>Extra arrows / DoT</td></tr>
+            <tr><td>Fire crew</td><td>Ignite line</td></tr>
+            <tr><td>Merchants</td><td>Gold over time</td></tr>
+            <tr><td>Repair / Carpenters</td><td>Slow heal over time</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="crosslinks">
+        <strong>Next:</strong>
+        <a href="/silver-farming/">Silver farming</a> ·
+        <a href="/captains/">Captains</a> ·
+        <a href="/">Home</a>
+      </div>
+
+      <details class="still-checking">
+        <summary>Still checking</summary>
+        <ul>
+          <li>Shop silver prices — no verified grid.</li>
+          <li>Mortar = cannonball for relics? Same grind tape says both yes and no.</li>
+          <li>Exact slots for Cannon Tower, Archer Tower, Arms, Force Mage — best-effort only.</li>
+          <li>Fire Mage EA balance — Demo 8 “broken” is out of scope.</li>
+          <li>0.9.9 patch string not confirmed on Steam news.</li>
+        </ul>
+      </details>
+    </div>
+
+    <aside class="guide-side" aria-label="Quick reference">
+      <div class="side-panel">
+        <h2>Slot Reference</h2>
+        <div class="slot-ref-row">
+          <span>Front</span>
+          <span>Sides</span>
+          <span>Back</span>
+        </div>
+        <p style="font-size:0.78rem;margin:0.65rem 0 0;opacity:0.9;">
+          Top sits above the hull. Some hulls get two top slots. Spiderberg has no back.
+        </p>
+      </div>
+      <div class="side-panel">
+        <h2>Do This Now</h2>
+        <ol>
+          <li>Start with <strong>side cannons, ram, mortar, mine layer</strong>.</li>
+          <li>Push side cannons to level <strong>10</strong> → unlock Front Cannon.</li>
+          <li>Need Companion? Keep a <strong>back</strong> slot — skip Spiderberg.</li>
+          <li>Pick a family: turrets+arrows, cannons+mortar, fire+ballista, or Empress+Companion.</li>
+          <li>Unlock toast ≠ owned. Silver buys it — see <a href="/silver-farming/">Silver farming</a>.</li>
+        </ol>
+      </div>
+    </aside>
   </div>
-
-  <h2>Module slots</h2>
-  <div class="slot-diagram" aria-label="Module slot layout">
-    <div class="slot slot-wide"><strong>Top</strong> mortar · fire mage · (some hulls: two top)</div>
-    <div class="slot"><strong>Side</strong> cannons · ballista · barracks</div>
-    <div class="slot"><strong>Front</strong> ram · front cannon</div>
-    <div class="slot"><strong>Back</strong> mines · Companion · booster</div>
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Slot</th><th>What goes here</th><th>Hull note</th></tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Front</strong></td><td>Ram / Bumper ram, Front Cannon</td><td>Ram line → Arms at level 10</td></tr>
-        <tr><td><strong>Side</strong></td><td>Side cannons, Side Ballista, Side Barracks</td><td>Cannons have auto-fire + broadside ability</td></tr>
-        <tr><td><strong>Top</strong></td><td>Top mortar, Fire Mage (exists in EA)</td><td>Some hulls get <strong>two top</strong> slots</td></tr>
-        <tr><td><strong>Back</strong></td><td>Mine layer, Companion, Booster</td><td><strong>Spiderberg has no back slot</strong></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>
-    Bindings: <strong>Q / E / R / Space</strong> plus auto-attacks. Relics can buff a whole position (“10% CD for all top modules,” “all back,” “all arrow abilities”).
-  </p>
-  <p>
-    Hulls named on tape: <strong>Wanderterm</strong> (starter), <strong>Spiderberg</strong>, <strong>Tankenberg</strong>.
-  </p>
-
-  <h2>Starter four — what you mount day one</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Module</th><th>Slot</th><th>Job</th><th>Next unlock</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Side cannons</td><td>Side</td><td>Side shots + broadside</td><td>Level 10 → <strong>Front Cannon</strong></td></tr>
-        <tr><td>Front ram</td><td>Front</td><td>Hit + shove ahead</td><td>Level 10 → <strong>Arms</strong></td></tr>
-        <tr><td>Top mortar</td><td>Top</td><td>Area volley / bombard</td><td>—</td></tr>
-        <tr><td>Mine layer</td><td>Back</td><td>Drop mines behind</td><td>—</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>Unlock → buy</h2>
-  <p>
-    During a run you unlock. Between runs you <strong>purchase in the loadout</strong> with silver.
-  </p>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Do this</th><th>Opens (then buy)</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Side cannons → upgrade level 10</td><td>Front Cannon</td></tr>
-        <tr><td>Ram → upgrade level 10</td><td>Arms</td></tr>
-        <tr><td>Archer crew → upgrade level 10</td><td>Archer Tower (fewer tapes)</td></tr>
-        <tr><td>Destroy 100 health boxes overall</td><td>Repair Crew</td></tr>
-        <tr><td>Destroy 120 walking enemies overall</td><td>Companion (reported)</td></tr>
-        <tr><td>Beat all four Golden Dunes bosses</td><td>Spiderberg vehicle (still buy)</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p>
-    Also seen for sale once unlocked: Turret Layer, Side Ballista, Fire Crew, Side Barracks, Force Mage, Fire Mage.
-    No price list here — we don’t have a verified grid.
-  </p>
-
-  <h2>What to mount (build families)</h2>
-
-  <h3>Turrets + arrows</h3>
-  <p><strong>Mount:</strong> Turret Layer, Archer Tower, Side Ballista, archer crew.</p>
-  <p>
-    Drop the turret, kite, collect gold for level-ups. Grab the relic that shortens arrow ability CDs when you kill with arrows.
-    One tape claims a #1 leaderboard run with this pile — treat as “players like it,” not a promise.
-  </p>
-
-  <h3>Cannons + mortar</h3>
-  <p><strong>Mount:</strong> Side cannons, Front Cannon, Top mortar. Cannon Tower if you have it.</p>
-  <p>
-    Pair with <a href="/captains/">Patchy the Pirate</a> if you want the cannon damage line.
-    Mortar may or may not count as “cannonball” for relics — check the upgrade text in your build.
-  </p>
-
-  <h3>Fire + ballista</h3>
-  <p><strong>Mount:</strong> Fire Crew + Side Ballista.</p>
-  <p>
-    Vehicles that die from fire leave fire craters. Good on Golden Dunes clips. Ignore Demo 8 “mage tower is broken” titles — EA balance is a different game.
-  </p>
-
-  <h3>Empress + Companion</h3>
-  <p><strong>Mount:</strong> Companion on <strong>back</strong>. Side Barracks fits the same friendly-unit idea.</p>
-  <p>
-    Empress doubles friendly units and halves your speed. Bring mobility (ram / booster) or Overtime will hurt.
-    Spiderberg cannot run Companion — no back slot. Details: <a href="/captains/">Captains</a>.
-  </p>
-
-  <h3>Also solid</h3>
-  <ul>
-    <li><strong>Ram line</strong> — shove and execute; helps OT mobility.</li>
-    <li><strong>Mine layer</strong> — kite and dump mines while the meter ticks.</li>
-    <li><strong>Merchants crew</strong> — passive gold → faster level-ups. Not a gun. Skip late merchant rolls if you never invested.</li>
-  </ul>
-
-  <h2>Crew (not siege slots)</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Crew</th><th>Job</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Archer crew</td><td>Extra arrows / DoT</td></tr>
-        <tr><td>Fire crew</td><td>Ignite line</td></tr>
-        <tr><td>Merchants</td><td>Gold over time</td></tr>
-        <tr><td>Repair / Carpenters</td><td>Slow heal over time</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="crosslinks">
-    <strong>Next:</strong>
-    <a href="/silver-farming/">Silver farming</a> ·
-    <a href="/captains/">Captains</a> ·
-    <a href="/">Home</a>
-  </div>
-
-  <details class="still-checking">
-    <summary>Still checking</summary>
-    <ul>
-      <li>Shop silver prices — no verified grid.</li>
-      <li>Mortar = cannonball for relics? Same grind tape says both yes and no.</li>
-      <li>Exact slots for Cannon Tower, Archer Tower, Arms, Force Mage — best-effort only.</li>
-      <li>Fire Mage EA balance — Demo 8 “broken” is out of scope.</li>
-      <li>0.9.9 patch string not confirmed on Steam news.</li>
-    </ul>
-  </details>
 </BaseLayout>

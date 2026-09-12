@@ -7,6 +7,7 @@ interface Props {
   ogImage?: string;
   ogType?: string;
   canonicalPath?: string;
+  shell?: 'wood' | 'parchment';
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   ogImage = 'https://wanderburgguide.site/images/home-hero.jpg',
   ogType = 'website',
   canonicalPath = Astro.url.pathname,
+  shell = 'wood',
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://wanderburgguide.site';
@@ -53,12 +55,10 @@ const path = Astro.url.pathname;
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <div class="header-top">
-          <a class="brand" href="/">Wanderburg Guide</a>
-          <div class="chip-row">
-            <span class="chip" title="Editorial target; Steam patch string not confirmed">EA 0.9.9</span>
-          </div>
-        </div>
+        <a class="brand" href="/">
+          Wanderburg
+          <span>Game Guide</span>
+        </a>
         <nav class="nav" aria-label="Primary">
           <a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
           <a href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}>Best Modules</a>
@@ -66,10 +66,21 @@ const path = Astro.url.pathname;
           <a href="/captains/" aria-current={path.startsWith('/captains') && !path.startsWith('/captains-tier-list') ? 'page' : undefined}>Captains</a>
           <a href="/contact/" aria-current={path.startsWith('/contact') ? 'page' : undefined}>Contact</a>
         </nav>
+        <div class="chip-row">
+          <span class="chip" title="Editorial target; Steam patch string not confirmed">EA 0.9.9</span>
+        </div>
       </div>
     </header>
     <main>
-      <slot />
+      <div class="page-shell">
+        <span class="rivet tl" aria-hidden="true"></span>
+        <span class="rivet tr" aria-hidden="true"></span>
+        <span class="rivet bl" aria-hidden="true"></span>
+        <span class="rivet br" aria-hidden="true"></span>
+        <div class:list={['page-inner', shell === 'parchment' && 'has-parchment']}>
+          <slot />
+        </div>
+      </div>
     </main>
     <footer class="site-footer">
       <p>
@@ -78,7 +89,7 @@ const path = Astro.url.pathname;
         ·
         <a href="/contact/">Contact</a>
       </p>
-      <p>Not affiliated with Randwerk or Sidekick Publishing.</p>
+      <p>Not affiliated with Randwerk or Sidekick Publishing. No paywalls — player-first guides.</p>
     </footer>
   </body>
 </html>
