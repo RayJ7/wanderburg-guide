@@ -710,6 +710,33 @@ li {
   margin: 0.3rem 0;
 }
 
+
+/* Home press-art wash — decorative only, no layout shift */
+.home-wrap {
+  position: relative;
+}
+
+.home-wrap::before {
+  content: "";
+  position: absolute;
+  right: -0.35rem;
+  bottom: 3.4rem;
+  width: min(38%, 260px);
+  height: 160px;
+  background: url("/images/press/28.png") center 40% / cover no-repeat;
+  opacity: 0.14;
+  pointer-events: none;
+  border-radius: 10px;
+  mask-image: radial-gradient(ellipse at 70% 50%, #000 28%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 50%, #000 28%, transparent 78%);
+  z-index: 0;
+}
+
+.home-wrap > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ========== Home entry cards ========== */
 
 .card-grid {
@@ -731,7 +758,8 @@ li {
     linear-gradient(180deg, var(--wood-mid) 0%, var(--wood-dark) 100%);
   border: 3px solid var(--stone);
   border-radius: 10px;
-  padding: 1rem 1rem 1.1rem;
+  padding: 0 0 1.1rem;
+  overflow: hidden;
   text-decoration: none;
   color: var(--text-on-dark);
   box-shadow:
@@ -748,6 +776,7 @@ li {
   border: 1px solid rgba(168, 159, 144, 0.45);
   border-radius: 6px;
   pointer-events: none;
+  z-index: 1;
 }
 
 .entry-card:hover {
@@ -755,6 +784,20 @@ li {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
   color: var(--text-on-dark);
   text-decoration: none;
+}
+
+.entry-card .card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 8.5rem;
+  object-fit: cover;
+  object-position: center 28%;
+  background: var(--wood-dark);
+  border-bottom: 2px solid var(--wood-dark);
+}
+
+.entry-card .card-thumb.thumb-portrait {
+  object-position: center 18%;
 }
 
 .entry-card .card-icon {
@@ -765,7 +808,7 @@ li {
   align-items: center;
   justify-content: center;
   font-size: 1.15rem;
-  margin-bottom: 0.55rem;
+  margin: 0.75rem 1rem 0.55rem;
   background: var(--grass);
   border: 2px solid var(--grass-leaf);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -782,7 +825,7 @@ li {
 }
 
 .entry-card h2 {
-  margin: 0 0 0.4rem;
+  margin: 0 1rem 0.4rem;
   font-size: 1rem;
   border: none;
   padding: 0;
@@ -793,7 +836,7 @@ li {
 }
 
 .entry-card p {
-  margin: 0 0 0.75rem;
+  margin: 0 1rem 0.75rem;
   font-size: 0.85rem;
   color: var(--muted-on-dark);
   flex: 1;
@@ -806,7 +849,7 @@ li {
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--grass-leaf);
-  margin-bottom: 0.75rem;
+  margin: 0 1rem 0.75rem;
 }
 
 .entry-card .card-tag::before {
@@ -893,6 +936,9 @@ li {
 
 .entry-card .cta-btn {
   margin-top: auto;
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 /* ========== Status bar (home footer strip) ========== */
