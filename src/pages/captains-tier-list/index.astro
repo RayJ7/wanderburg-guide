@@ -11,30 +11,35 @@ const enCaptains = [
   {
     name: 'Lumberjack',
     source: '-p5m-EkPUT4',
+    file: 'captain_Lumberjack_-p5m-EkPUT4_0.jpg',
     role: 'Named on EN roster stills',
     synergy: 'No module-line write-up in our pack yet — identity only',
   },
   {
     name: 'The Count',
     source: '-p5m-EkPUT4',
+    file: 'captain_TheCount_-p5m-EkPUT4_1.jpg',
     role: 'Named on EN roster stills',
     synergy: 'No module-line write-up in our pack yet — identity only',
   },
   {
     name: 'Racer Ruth',
     source: '-p5m-EkPUT4',
+    file: 'captain_RacerRuth_-p5m-EkPUT4_6.jpg',
     role: 'Named on EN roster stills (speed / mobility flavor by name only)',
     synergy: 'Mobility helps Overtime survival — see Silver farming; no confirmed kit text here',
   },
   {
     name: 'Norbert The Normal',
     source: 'Jeh4-Sdx_3A',
+    file: 'captain_NorbertTheNormal_Jeh4-Sdx_3A_466.jpg',
     role: 'Named on EN roster stills',
     synergy: 'No module-line write-up in our pack yet — identity only',
   },
   {
     name: 'Patchy The Pirate',
     source: 'Jeh4-Sdx_3A',
+    file: 'captain_PatchyThePirate_Jeh4-Sdx_3A_466.jpg',
     role: 'Pirate captain line (cannon family)',
     synergy:
       'Reported: +100% cannon damage (enemies too). Warps the cannons + mortar family — see Best modules. Unnamed +30% cannon / +50% taken pick also spoken on tape (may or may not be this captain).',
@@ -42,30 +47,35 @@ const enCaptains = [
   {
     name: 'Huntress',
     source: 'Jeh4-Sdx_3A',
+    file: 'captain_Huntress_Jeh4-Sdx_3A_468.jpg',
     role: 'Named on EN roster stills',
     synergy: 'No verified arrow/turret captain text in our pack — do not invent',
   },
   {
     name: 'Tankbert',
     source: 'tXa2csqQUbA',
+    file: 'captain_Tankbert_tXa2csqQUbA_99.jpg',
     role: 'Named on grind / loadout tape stills',
     synergy: 'Name suggests tank/hull focus; no tooltip dump in sources — identity only',
   },
   {
     name: 'Time Witch',
     source: 'T0vP215Rg_U',
+    file: 'captain_TimeWitch_T0vP215Rg_U_1876.jpg',
     role: 'Named on EN roster stills',
     synergy: 'No cooldown-kit confirmation in our pack — identity only',
   },
   {
     name: 'Duelist',
     source: 'T0vP215Rg_U',
+    file: 'captain_Duelist_T0vP215Rg_U_1882.jpg',
     role: 'Named on EN roster stills',
     synergy: 'No verified melee/ram link in sources — identity only',
   },
   {
     name: 'Pyromaniac',
     source: 'T0vP215Rg_U',
+    file: 'captain_Pyromaniac_T0vP215Rg_U_1888.jpg',
     role: 'Named on EN roster stills (fire flavor by name only)',
     synergy: 'Fire + ballista family exists on the modules page; no confirmed Pyromaniac kit text here',
   },
@@ -138,6 +148,25 @@ const ptCaptains = [
     Filenames and source video IDs come from <code>IMAGE-MAPPING.md</code> (<code>assets/captains/</code>).
     Synergy notes only where the modules / silver cold-reads already cite the line.
   </p>
+
+  <div class="captain-gallery" aria-label="EN captain card stills">
+    {enCaptains.map((c) => (
+      <figure>
+        <img
+          src={`/images/captains/${c.file}`}
+          alt={c.name}
+          loading="lazy"
+          width="480"
+          height="640"
+        />
+        <figcaption>
+          <strong>{c.name}</strong>
+          <span class="gallery-src">YouTube source: {c.source}</span>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+
   <div class="table-wrap">
     <table>
       <thead>

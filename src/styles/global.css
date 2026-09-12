@@ -396,3 +396,65 @@ code {
 .expectation-banner strong {
   color: #ffd666;
 }
+
+
+.captain-gallery {
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.25rem 0 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 560px) {
+  .captain-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 720px) {
+  .captain-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 900px) {
+  .captain-gallery {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.captain-gallery figure {
+  margin: 0;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.captain-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: var(--bg-card);
+}
+
+.captain-gallery figcaption {
+  padding: 0.45rem 0.55rem 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.captain-gallery figcaption strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.85rem;
+  margin-bottom: 0.15rem;
+}
+
+.captain-gallery .gallery-src {
+  display: block;
+  word-break: break-all;
+}
