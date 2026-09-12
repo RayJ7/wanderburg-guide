@@ -1547,3 +1547,60 @@ details.still-checking[open] summary {
   color: var(--purple-accent);
   font-weight: 700;
 }
+
+/* === Element 1: 1:1 home header slice === */
+.site-header-slice {
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 50;
+  padding: 0;
+}
+.header-slice-wrap {
+  position: relative;
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  line-height: 0;
+}
+.header-slice-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.header-hotspots {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+}
+.header-hotspots .hs {
+  position: absolute;
+  top: 18%;
+  height: 64%;
+  display: block;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: transparent;
+}
+.header-hotspots .hs:hover,
+.header-hotspots .hs:focus-visible {
+  outline: 2px solid rgba(201, 162, 39, 0.85);
+  outline-offset: -2px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.hs-home { left: 22%; width: 8%; }
+.hs-modules { left: 31%; width: 11%; }
+.hs-silver { left: 43%; width: 12%; }
+.hs-captains { left: 56%; width: 9%; }
+.hs-contact { left: 66%; width: 8%; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

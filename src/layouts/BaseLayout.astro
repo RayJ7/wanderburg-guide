@@ -23,13 +23,6 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://wanderburggui
 const canonical = `${site}${canonicalPath.endsWith('/') ? canonicalPath : canonicalPath + '/'}`;
 const path = Astro.url.pathname;
 
-const nav = [
-  { href: '/', label: 'Home', icon: '🏠', match: (p: string) => p === '/' },
-  { href: '/best-modules/', label: 'Best Modules', icon: '🧩', match: (p: string) => p.startsWith('/best-modules') },
-  { href: '/silver-farming/', label: 'Silver Farming', icon: '🪙', match: (p: string) => p.startsWith('/silver-farming') },
-  { href: '/captains/', label: 'Captains', icon: '⛑️', match: (p: string) => p.startsWith('/captains') && !p.startsWith('/captains-tier-list') },
-  { href: '/contact/', label: 'Contact', icon: '✉', match: (p: string) => p.startsWith('/contact') },
-];
 ---
 
 <!doctype html>
@@ -61,38 +54,22 @@ const nav = [
     </script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="header-frame">
-        <span class="hdr-rivet tl" aria-hidden="true"></span>
-        <span class="hdr-rivet tr" aria-hidden="true"></span>
-        <span class="hdr-rivet bl" aria-hidden="true"></span>
-        <span class="hdr-rivet br" aria-hidden="true"></span>
-        <div class="header-inner">
-          <a class="brand" href="/">
-            <span class="brand-mark" aria-hidden="true">W</span>
-            <span class="brand-text">
-              Wanderburg
-              <span>Game Guide</span>
-            </span>
-          </a>
-          <nav class="nav" aria-label="Primary">
-            {nav.map((item) => (
-              <a
-                href={item.href}
-                class="nav-btn"
-                aria-current={item.match(path) ? 'page' : undefined}
-              >
-                <span class="nav-icon" aria-hidden="true">{item.icon}</span>
-                <span class="nav-label">{item.label}</span>
-              </a>
-            ))}
-          </nav>
-          <div class="chip-row" aria-hidden="true">
-            <span class="res-chip gem"><span class="res-ico">◆</span> 2,450</span>
-            <span class="res-chip coin"><span class="res-ico">●</span> 18,670</span>
-            <span class="chip">EA 0.9.9</span>
-          </div>
-        </div>
+    <header class="site-header site-header-slice">
+      <div class="header-slice-wrap">
+        <img
+          class="header-slice-img"
+          src="/images/ui/slices/home/home-header.png"
+          width="1280"
+          height="71"
+          alt="Wanderburg Guide navigation"
+        />
+        <nav class="header-hotspots" aria-label="Primary">
+          <a class="hs hs-home" href="/" aria-current={path === '/' ? 'page' : undefined}><span class="sr-only">Home</span></a>
+          <a class="hs hs-modules" href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}><span class="sr-only">Best Modules</span></a>
+          <a class="hs hs-silver" href="/silver-farming/" aria-current={path.startsWith('/silver-farming') ? 'page' : undefined}><span class="sr-only">Silver Farming</span></a>
+          <a class="hs hs-captains" href="/captains/" aria-current={path.startsWith('/captains') && !path.startsWith('/captains-tier-list') ? 'page' : undefined}><span class="sr-only">Captains</span></a>
+          <a class="hs hs-contact" href="/contact/" aria-current={path.startsWith('/contact') ? 'page' : undefined}><span class="sr-only">Contact</span></a>
+        </nav>
       </div>
     </header>
     <main>
