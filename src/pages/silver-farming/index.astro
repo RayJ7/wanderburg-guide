@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Wanderburg Silver Farming Guide (0.9.9 EA)';
+const description =
+  'How Wanderburg silver works versus gold: Overtime after four bosses, quest lumps, map multipliers, and loadout spends — no invented prices or silver-per-minute formula.';
+const ogImage =
+  'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/1af8e0906799b8c9063d0e5031571aef48b55605/header_alt_assets_2.jpg';
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/silver-farming/">
+  <img
+    class="hero-img"
+    src={ogImage}
+    alt="Wanderburg camp hub / shop-looking Steam still"
+    width="1920"
+    height="1080"
+    fetchpriority="high"
+  />
+  <p class="hero-caption">
+    Steam store header (CDN). Prefer camp-hub still ss_036989f9… when local assets sync. YT silver UI frames are secondary only — not hero.
+  </p>
+
+  <h1>Wanderburg Silver Farming Guide (0.9.9 EA)</h1>
+
+  <blockquote>
+    <p>
+      <strong>Answer:</strong> Silver is the <strong>between-run</strong> currency. You spend it on the
+      <strong>loadout</strong> (modules, crew, vehicles, captains). In-run <strong>gold</strong> only buys level-ups.
+      After the fourth boss, stay in <strong>Overtime</strong> — that is where tapes show the big silver stacks.
+      Lifetime quests (100 units, 1,000 sheep, 100 health boxes) add lumps. Shop prices are still <strong>unverified</strong>.
+    </p>
+  </blockquote>
+
+  <p class="meta-note">
+    Label: Early Access, editorial target <strong>0.9.9</strong>. That version string is not confirmed on Steam news, store identity, or video titles as of 2026-09-12.
+  </p>
+
+  <h2>What we still can't verify</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Gap</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Shop price grid / “what to grind toward first by cost”</td><td><span class="badge badge-warn">UNVERIFIED</span> — do not quote prices</td></tr>
+        <tr><td>Overtime formula (start rate, step-up, cap, kill bonus)</td><td><span class="badge badge-warn">UNVERIFIED</span> — “~1 silver/sec” is one HUD read only</td></tr>
+        <tr><td>Shop talk that says “gold” on the between-run screen</td><td><span class="badge badge-hold">CONFLICT</span> — this guide follows <strong>silver</strong> for meta spend</td></tr>
+        <tr><td>Daily quest reset rules / full quest list</td><td>No data</td></tr>
+        <tr><td>Map multiplier <strong>1.3×</strong> beyond Dusky Pines</td><td>Unknown — only multiplier spoken on tape</td></tr>
+        <tr><td>Leaderboard weight (gold vs silver vs time)</td><td><span class="badge badge-warn">UNVERIFIED</span></td></tr>
+        <tr><td>Demo 8 economy / mage-tower farm clips</td><td><strong>Out of scope</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>No invented silver-per-minute formula. Captains that change module value: <a href="/captains-tier-list/">Captains</a>.</p>
+
+  <h2>Silver is not gold</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Currency</th><th>When you get it</th><th>What it buys</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Gold</strong></td><td>During a run — consume / destroy villages, flocks, farmsteads, enemies</td><td>Level-ups and in-run upgrades</td></tr>
+        <tr><td><strong>Silver</strong></td><td>Meta — Overtime, quests, end-of-run bank</td><td>Loadout unlocks between runs</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="meta-note">(source: SEqFc1vSP0E, 4WaBl_zpkw0, hqDUR7_ypL4, 5LlTi27XEa0)</p>
+  <p>
+    Steam store copy never names silver, shop prices, or Overtime. Official about-text only says unlocks for modules, vehicles, artifacts, and captains happen between runs.
+  </p>
+  <p>
+    <strong>CONFLICT:</strong> some shop talk says “gold” while standing in the between-run screen (“42,000 gold to spend,” Force Mage “10,000”).
+    Until a clear UI still shows another word, this guide follows <strong>silver</strong> for meta spend. Treat shop “gold” quotes as possible mis-speak.
+  </p>
+  <p>Mortar “gold collection record” tapes are <strong>in-run gold</strong>, not a silver route (source: llZRF-2hkd8).</p>
+
+  <h2>Why you farm (loadout unlocks)</h2>
+  <p>Unlock toast in a run: congratulations — you may now <strong>purchase it in the loadout</strong>. Silver pays that purchase.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Condition</th><th>What opens</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Side cannons upgrade level 10</td><td>Front Cannon (then buy in loadout)</td><td>Source-backed</td></tr>
+        <tr><td>Ram upgrade level 10</td><td>Arms</td><td>Source-backed</td></tr>
+        <tr><td>Destroy 100 health boxes <strong>overall</strong></td><td>Repair Crew</td><td>Source-backed</td></tr>
+        <tr><td>Destroy 120 walking enemies <strong>overall</strong></td><td>Companion</td><td>Reported</td></tr>
+        <tr><td>Beat all four Golden Dunes bosses</td><td>Spiderberg vehicle (still purchase)</td><td>Source-backed</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Reported spend fragments — <strong>not</strong> a price table:</p>
+  <ul>
+    <li>Starting with <strong>8 silver</strong> is not enough to buy anything (source: sf-aDBSy-Eo).</li>
+    <li>One long stream called an Overtime payout of <strong>~3,000</strong> “enough for a proper upgrade” (source: 50HzVSeXh3U).</li>
+    <li>After buying Empress, one clip had <strong>~800</strong> left and wondered if Side Barracks was affordable — Empress’s own cost was never stated.</li>
+  </ul>
+  <p>For <em>what</em> to buy once you have silver, see <a href="/best-modules/">Best modules</a> and <a href="/captains-tier-list/">Captains</a>.</p>
+
+  <h2>The Overtime loop (primary farm)</h2>
+  <ol>
+    <li>Clear the map’s <strong>four bosses</strong>.</li>
+    <li>Choose: go to the end screen <strong>or enter Overtime</strong> to collect extra silver (or beat a record).</li>
+    <li>Survive while the OT meter ticks. Enemies speed up / “go crazy.”</li>
+    <li>Cash out before you die — silver already earned stays banked.</li>
+  </ol>
+  <p class="meta-note">(source: 50HzVSeXh3U, iTNVPJUxvbg, 5LlTi27XEa0, 4WaBl_zpkw0)</p>
+
+  <p><strong>What we will not publish as a formula:</strong></p>
+  <ul>
+    <li>“About <strong>1 silver per second</strong>” is a <strong>single HUD read</strong> on one long stream — reported, not crossed.</li>
+    <li>“Rate rises the longer you last” is a <strong>qualitative guess</strong> at a filling bar; another creator agrees “the longer you stay in, the better,” but no step, cap, or kill-bonus formula exists in our sources.</li>
+    <li>Overtime with a leftover boss on the field is “not great”; speed / nitro talk shows up on grind tapes as survival help (source: tXa2csqQUbA).</li>
+  </ul>
+
+  <p><strong>Example exits only</strong> (one stream, one number — not averages):</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Spoken exit</th><th>Context</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>~186 “shards, silvers”</td><td>Early / short run</td><td>Reported</td></tr>
+        <tr><td>~2,600 silver</td><td>Farm run</td><td>Reported</td></tr>
+        <tr><td>~3,000 silver</td><td>OT segment / grind end-screen (“enough for one day”)</td><td>Reported</td></tr>
+        <tr><td>6,000 then 20,000</td><td>Same long run later (totals, not rates)</td><td>Reported</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Do not turn those into “silver per minute.”</p>
+
+  <h2>Maps and the silver multiplier</h2>
+  <p>Unlock / name chain seen in EA:</p>
+  <ul>
+    <li><strong>Green Plains / Grasslands / Waving Fields</strong> — beat all four bosses → unlock <strong>Golden Dunes</strong> (desert).</li>
+    <li><strong>Golden Dunes</strong> — beat all four bosses → <strong>Spiderberg</strong> unlock toast (still buy in loadout).</li>
+    <li>Other names on tape: Dusky Pines, Wasteland, Meadows (unlock talk).</li>
+  </ul>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Map note</th><th>Claim</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Dusky Pines</td><td>Difficulty 3, <strong>silver multiplier 1.3×</strong></td><td>Reported — only multiplier read aloud on tape</td></tr>
+        <tr><td>Wasteland</td><td>Called “hardest map”; another map shows a red skull</td><td>Reported — no multiplier spoken</td></tr>
+        <tr><td>Worlds / extra biomes</td><td>EA add vs demo</td><td>Source-backed as content, not as a proven better farm</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    <strong>Decision rule:</strong> farm on a map you can <strong>full-clear and Overtime</strong>, not the highest skull you brick.
+    A 1.3× tag does nothing if you never reach OT.
+  </p>
+
+  <h2>Quests and dailies (lump silver)</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Quest (as spoken)</th><th>Reward / unlock</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Consume <strong>100 units in one run</strong></td><td><strong>500 silver</strong></td><td>Source-backed</td></tr>
+        <tr><td>Consume <strong>1,000 sheep overall</strong></td><td><strong>2,500 silver</strong> (“meta progression currency”)</td><td>Reported</td></tr>
+        <tr><td>Destroy <strong>100 health boxes overall</strong></td><td>Unlock <strong>Repair Crew</strong></td><td>Source-backed</td></tr>
+        <tr><td>Destroy <strong>120 walking enemies overall</strong></td><td>Unlock <strong>Companion</strong></td><td>Reported</td></tr>
+        <tr><td>Destroy <strong>50 vehicles in one run</strong></td><td>Gold or silver (ASR messy)</td><td>Unverified</td></tr>
+        <tr><td>Daily quest on HUD</td><td>Reward unclear; location on HUD unclear</td><td>Reported</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Reset rules for dailies / lifetime quests: <strong>no data</strong>. Do not assume a 24-hour reset.</p>
+
+  <h2>In-run silver (secondary)</h2>
+  <ul>
+    <li>Level-up roll option <strong>“10% drop silver”</strong> exists on tape (source: Z6ozjsLGIZQ) — no drop table.</li>
+    <li>Spoken “Max mana / Max HP, 50 silver” lines are <strong>unverified</strong> — may be shop or relic text, not a farm loop.</li>
+    <li>Farmsteads and chests are worth routing for <strong>gold</strong> (level-ups). They are not proven silver sources unless a still shows otherwise.</li>
+  </ul>
+
+  <h2>Builds that survive Overtime (farm, not DPS)</h2>
+  <p>
+    Point at <a href="/best-modules/">Best modules</a> families that <strong>kite and live</strong>.
+    There is no verified “best silver/hour” build until timed stills exist.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Survival style</th><th>Why it shows up on farm tapes</th></tr></thead>
+      <tbody>
+        <tr><td>Turrets + arrows</td><td>Drop turret, retreat, pick loot while the meter ticks</td></tr>
+        <tr><td>Mines + bumper ram</td><td>Grind stream titled for silver; they skip new toys and keep moving</td></tr>
+        <tr><td>Cannons + mortar</td><td>Stay in OT “to unlock more things” once the kit is already built</td></tr>
+        <tr><td>Mobility</td><td>Max speed / nitro / booster — OT is a survival check; Empress half-speed is an OT risk (<a href="/captains-tier-list/">Captains</a>)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Leaderboards</h2>
+  <p>
+    Steam lists <strong>Leaderboards</strong> as an official feature. Players talk about Overtime as the screen for
+    <strong>gold and silver you leave with</strong>, and goals like “crack 20,000.” The scoring formula itself is
+    <strong>unverified</strong> — do not invent a weight for gold vs silver vs time.
+  </p>
+
+  <h2>What not to do</h2>
+  <ul>
+    <li>Don’t cash out at four bosses if you still have HP and a clear field — Overtime is the primary silver loop we can defend.</li>
+    <li>Don’t spend early silver on cosmetics; the supporter-pack decorations are <strong>real-money DLC</strong>, not a silver sink.</li>
+    <li>Don’t chase Demo 8 mage-tower clips for farm power.</li>
+    <li>Don’t quote shop prices — there is no verified price grid.</li>
+    <li>Don’t treat in-run gold records as silver rates.</li>
+  </ul>
+
+  <h2>Version</h2>
+  <p>
+    Same 0.9.9 caveat as the modules page. Overtime UI text (“extra silver” / beat record) is consistent across several EA tapes —
+    safest mechanic on this guide. Re-check when Steam News posts a real version number.
+  </p>
+
+  <div class="crosslinks">
+    <strong>Related:</strong>
+    <a href="/best-modules/">Best modules</a> ·
+    <a href="/captains-tier-list/">Captains</a> ·
+    <a href="/">Home</a>
+  </div>
+
+  <div class="changelog">
+    <h3>CHANGELOG / open evidence gaps</h3>
+    <ul>
+      <li><strong>revision: cold-read-1</strong> (2026-09-12) — above-the-fold intent + answer; UNVERIFIED/CONFLICT box; gold/silver + unlock + OT exit tables; hero Steam shop (not YT); no invented prices/OT formula.</li>
+      <li><strong>No shop price grid</strong> — biggest hole for “what to grind toward first.”</li>
+      <li><strong>No Overtime formula</strong> (start rate, step-up, cap, kill bonus).</li>
+      <li>YT-derived silver UI frames remain secondary — rights/Tier-2 before live ship of those frames.</li>
+    </ul>
+  </div>
+</BaseLayout>

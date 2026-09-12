@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect fill="#0f1419" width="1200" height="630"/>
+  <rect x="0" y="200" width="1200" height="230" fill="#2a3344"/>
+  <text x="600" y="310" fill="#c9a227" font-family="system-ui,sans-serif" font-size="56" text-anchor="middle">WANDERBURG</text>
+  <text x="600" y="370" fill="#e8eaf0" font-family="system-ui,sans-serif" font-size="24" text-anchor="middle">Castle on Wheels — Guide Hub (EA)</text>
+  <text x="600" y="520" fill="#8b93a7" font-family="system-ui,sans-serif" font-size="18" text-anchor="middle">Placeholder — prefer Steam header CDN</text>
+</svg>

@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = 'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/1af8e0906799b8c9063d0e5031571aef48b55605/header_alt_assets_2.jpg',
+  ogType = 'website',
+  canonicalPath = Astro.url.pathname,
+} = Astro.props;
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://wanderburg.example';
+const canonical = `${site}${canonicalPath.endsWith('/') ? canonicalPath : canonicalPath + '/'}`;
+const path = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Wanderburg Guide" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/">Wanderburg Guide</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
+          <a href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}>Best Modules</a>
+          <a href="/silver-farming/" aria-current={path.startsWith('/silver-farming') ? 'page' : undefined}>Silver Farming</a>
+          <a href="/captains-tier-list/" aria-current={path.startsWith('/captains-tier-list') ? 'page' : undefined}>Captains</a>
+          <a href="/contact/" aria-current={path.startsWith('/contact') ? 'page' : undefined}>Contact</a>
+        </nav>
+        <div class="chip-row">
+          <span class="chip" title="Editorial target; Steam patch string not confirmed">Verified · EA 0.9.9</span>
+          <span class="disclaimer">Unofficial fan guide. Not affiliated with Randwerk or Sidekick Publishing. Steam &amp; the Steam logo are trademarks of Valve Corporation.</span>
+        </div>
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>
+        Wanderburg Guide · Early Access editorial target 0.9.9 ·
+        <a href="https://store.steampowered.com/app/3624140/Wanderburg/" rel="noopener noreferrer">Steam</a>
+        ·
+        <a href="/contact/">Contact</a>
+      </p>
+      <p>No official affiliation. Data from public Steam store + creator videos; gaps marked UNVERIFIED / CONFLICT.</p>
+    </footer>
+  </body>
+</html>

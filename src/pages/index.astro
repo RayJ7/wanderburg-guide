@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Wanderburg Guide — Modules, Silver & Captains (0.9.9 EA)';
+const description =
+  'Unofficial Wanderburg Early Access guides: best modules, silver farming (Overtime), and captains role/synergy notes for EA 0.9.9. No invented DPS or shop prices.';
+const ogImage =
+  'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/1af8e0906799b8c9063d0e5031571aef48b55605/header_alt_assets_2.jpg';
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/">
+  <img
+    class="hero-img"
+    src={ogImage}
+    alt="Wanderburg Steam store header — castle on wheels"
+    width="1200"
+    height="630"
+    fetchpriority="high"
+  />
+  <p class="hero-caption">Steam store header (app 3624140). Unofficial fan guide.</p>
+
+  <h1>Wanderburg Guide (Early Access)</h1>
+  <p class="lead">
+    Drive your castle on wheels — then spend silver between runs. These pages map
+    <strong>module families</strong>, the <strong>Overtime silver loop</strong>, and a
+    <strong>captains roster</strong> from public tapes. Editorial target label:
+    <strong>0.9.9 EA</strong> (Steam patch string not confirmed as of 2026-09-12).
+  </p>
+
+  <div class="card-grid">
+    <a class="card" href="/best-modules/">
+      <h2>Best Modules</h2>
+      <p>Starter four, unlock→purchase chains, turrets / cannons / fire / Empress+Companion. No fake tier ranks.</p>
+    </a>
+    <a class="card" href="/silver-farming/">
+      <h2>Silver Farming</h2>
+      <p>Silver ≠ gold. Overtime after four bosses, quests, map multipliers — no invented silver/min formula.</p>
+    </a>
+    <a class="card" href="/captains-tier-list/">
+      <h2>Captains Tier List</h2>
+      <p>EN roster of 10 + PT UI names. Role/synergy comparison only — no invented S/A/B ranks.</p>
+    </a>
+    <a class="card" href="/contact/">
+      <h2>Contact</h2>
+      <p>Corrections and tips welcome. Email placeholder until a real inbox is ready.</p>
+    </a>
+  </div>
+
+  <h2>Quick facts</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Fact</th><th>Detail</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Game</td><td>Wanderburg — medieval roguelike of roaming fortresses</td></tr>
+        <tr><td>Steam</td><td>AppID 3624140 · EA since 8 Sep 2026</td></tr>
+        <tr><td>Developer</td><td>Randwerk</td></tr>
+        <tr><td>Publisher</td><td>Sidekick Publishing</td></tr>
+        <tr><td>Official site</td><td><a href="https://wanderburg.com/" rel="noopener noreferrer">wanderburg.com</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="crosslinks">
+    <strong>Start here:</strong>
+    <a href="/best-modules/">Best modules</a> ·
+    <a href="/silver-farming/">Silver farming</a> ·
+    <a href="/captains-tier-list/">Captains</a>
+  </div>
+</BaseLayout>
