@@ -52,7 +52,7 @@ Do **not** use Vercel for this project.
 
 Environment: none required for a static build. No analytics / GA wired in.
 
-Custom domain / `site` URL: update `site` in `astro.config.mjs` (currently `https://wanderburg.example`) so sitemap + canonical URLs match production.
+Custom domain: **wanderburgguide.site**. `site` in `astro.config.mjs` is set to `https://wanderburgguide.site` so sitemap + canonical URLs match production.
 
 ## Content sources
 

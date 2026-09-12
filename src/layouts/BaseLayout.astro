@@ -17,7 +17,7 @@ const {
   canonicalPath = Astro.url.pathname,
 } = Astro.props;
 
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://wanderburg.example';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://wanderburgguide.site';
 const canonical = `${site}${canonicalPath.endsWith('/') ? canonicalPath : canonicalPath + '/'}`;
 const path = Astro.url.pathname;
 ---
