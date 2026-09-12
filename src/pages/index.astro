@@ -4,15 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const title = 'Wanderburg Guide — Modules, Silver & Captains (0.9.9 EA)';
 const description =
   'Player-first Wanderburg Early Access guides: module slot reference, silver Overtime decision tree, and captain × module pairings. Finish runs — no invented DPS or shop prices.';
-const ogImage =
-  'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/1af8e0906799b8c9063d0e5031571aef48b55605/header_alt_assets_2.jpg';
+const ogImage = 'https://wanderburgguide.site/images/home-hero.jpg';
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/">
   <img
     class="hero-img"
-    src={ogImage}
-    alt="Wanderburg — castle on wheels Steam header"
+    src="/images/home-hero.jpg"
+    alt="Wanderburg — castle on wheels shop hero"
     width="1200"
     height="630"
     fetchpriority="high"

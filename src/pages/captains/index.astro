@@ -3,60 +3,71 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Wanderburg Captains Guide (0.9.9 EA)';
 const description =
-  'Wanderburg captains unlock, role, and module pairing guide for Early Access 0.9.9. EN roster of 10 with captain × module links. No invented S/A/B tiers.';
-const ogImage =
-  'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/1af8e0906799b8c9063d0e5031571aef48b55605/header_alt_assets_2.jpg';
+  'Wanderburg captains unlock, role, and module pairing guide for Early Access 0.9.9. EN roster with captain × module links. No invented S/A/B tiers.';
+const ogImage = 'https://wanderburgguide.site/images/home-hero.jpg';
 
-const enCaptains = [
-  {
-    name: 'Lumberjack',
-    role: 'Starter-flavored pick',
-    pair: 'No module line locked yet — fine as a first captain while you learn slots.',
-  },
+/** Main EN pairing gallery — clean card art (excludes Lumberjack + Huntress; art pending). */
+const mainCaptains = [
   {
     name: 'The Count',
+    slug: 'TheCount',
     role: 'Healing / sustain',
     pair: 'Reported as more healing. Pair with long Overtime sits and Repair Crew.',
   },
   {
     name: 'Racer Ruth',
+    slug: 'RacerRuth',
     role: 'Mobility (by name / pick flavor)',
     pair: 'Speed helps Overtime survival. Strong default when Empress isn’t in play.',
   },
   {
     name: 'Norbert The Normal',
+    slug: 'NorbertTheNormal',
     role: 'Default / baseline',
     pair: 'One creator called out “no arrow-related captains” here — safe with any kit.',
   },
   {
     name: 'Patchy The Pirate',
+    slug: 'PatchyThePirate',
     role: 'Cannon damage',
     pair: 'Reported: +100% your cannons, +100% enemy cannons. Mount side cannons / Front Cannon / mortar. See Best modules → cannons.',
   },
   {
-    name: 'Huntress',
-    role: 'Named on EN stills',
-    pair: 'No verified arrow kit text yet. If you run turrets + arrows, try her — confirm tooltip in loadout.',
-  },
-  {
     name: 'Tankbert',
+    slug: 'Tankbert',
     role: 'Hull / HP line',
     pair: 'Stills show HP growth on destroying vehicles, with a nitro regen hit. Pair with ram / vehicle-kill routes; watch OT mobility.',
   },
   {
     name: 'Time Witch',
+    slug: 'TimeWitch',
     role: 'Named on EN stills',
     pair: 'No cooldown kit confirmation in our sources — check tooltip before you buy.',
   },
   {
     name: 'Duelist',
+    slug: 'Duelist',
     role: 'Named on EN stills',
     pair: 'No verified melee/ram link yet. Ram family players: confirm in loadout.',
   },
   {
     name: 'Pyromaniac',
+    slug: 'Pyromaniac',
     role: 'Fire flavor',
     pair: 'Pairs thematically with Fire Crew + Side Ballista. Kit text not dumped here — confirm before spending silver.',
+  },
+];
+
+const pendingArt = [
+  {
+    name: 'Lumberjack',
+    role: 'Starter-flavored pick',
+    note: 'Fine as a first captain while you learn slots — card art still rough.',
+  },
+  {
+    name: 'Huntress',
+    role: 'Named on EN stills',
+    note: 'No verified arrow kit text yet. If you run turrets + arrows, try her — confirm tooltip in loadout.',
   },
 ];
 ---
@@ -75,8 +86,27 @@ const enCaptains = [
   </div>
 
   <p class="lead">
-    Unlock / role / pairing for the EN roster of 10. Card art is incomplete on some stills — table first; images later.
+    Unlock / role / pairing for the main EN roster. Clean card crops below; two shop captains with pending art are listed separately.
   </p>
+
+  <h2>Captain cards</h2>
+  <div class="captain-gallery" role="list">
+    {mainCaptains.map((c) => (
+      <figure class="captain-card" role="listitem">
+        <img
+          src={`/images/captains/captain_${c.slug}_clean.jpg`}
+          alt={`${c.name} captain card`}
+          width="200"
+          height="280"
+          loading="lazy"
+        />
+        <figcaption>
+          <strong>{c.name}</strong>
+          <span class="captain-role">{c.role}</span>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
 
   <h2>Captain × module pairing</h2>
   <div class="table-wrap">
@@ -90,7 +120,7 @@ const enCaptains = [
         </tr>
       </thead>
       <tbody>
-        {enCaptains.map((c, i) => (
+        {mainCaptains.map((c, i) => (
           <tr>
             <td>{i + 1}</td>
             <td><strong>{c.name}</strong></td>
@@ -119,10 +149,24 @@ const enCaptains = [
     </li>
   </ul>
 
+  <details class="pending-art">
+    <summary>Also in shop — art pending</summary>
+    <p class="meta-note">
+      Lumberjack and Huntress appear in the between-run shop; card crops are still low quality, so they are not featured in the main gallery or pairing table.
+    </p>
+    <ul>
+      {pendingArt.map((c) => (
+        <li>
+          <strong>{c.name}</strong> — {c.role}. {c.note}
+        </li>
+      ))}
+    </ul>
+  </details>
+
   <aside class="decision-tree" aria-label="Empress and PT UI captains">
     <h3>Empress (spoken on EN tapes; PT UI still)</h3>
     <p>
-      Not in the EN-10 table above. Creators read: <strong>double friendly units</strong>, <strong>half speed</strong>.
+      Not in the EN table above. Creators read: <strong>double friendly units</strong>, <strong>half speed</strong>.
       Pair with <strong>Companion</strong> (back slot) or Side Barracks. Skip Spiderberg for Companion runs.
       Half-speed tax hurts Overtime — bring ram / booster / nitro.
     </p>
@@ -133,7 +177,7 @@ const enCaptains = [
     </p>
   </aside>
 
-  <p class="meta-note">Demo Dieter is out of scope for EA. Card gallery held until crops are clean.</p>
+  <p class="meta-note">Demo Dieter is out of scope for EA.</p>
 
   <div class="crosslinks">
     <strong>Related:</strong>
@@ -148,7 +192,7 @@ const enCaptains = [
       <li>No official S/A/B sheet — we will not invent ranks.</li>
       <li>Full tooltip text for every captain — stills + sparse ASR only.</li>
       <li>Whether PT-localized names are unique kits — unknown.</li>
-      <li>Clean captain card crops for gallery — pending.</li>
+      <li>Cleaner Lumberjack / Huntress crops for main gallery — pending.</li>
       <li>0.9.9 patch string not confirmed on Steam news.</li>
     </ul>
   </details>
