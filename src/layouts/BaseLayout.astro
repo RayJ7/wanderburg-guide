@@ -53,18 +53,19 @@ const path = Astro.url.pathname;
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/">Wanderburg Guide</a>
+        <div class="header-top">
+          <a class="brand" href="/">Wanderburg Guide</a>
+          <div class="chip-row">
+            <span class="chip" title="Editorial target; Steam patch string not confirmed">EA 0.9.9</span>
+          </div>
+        </div>
         <nav class="nav" aria-label="Primary">
           <a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
           <a href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}>Best Modules</a>
           <a href="/silver-farming/" aria-current={path.startsWith('/silver-farming') ? 'page' : undefined}>Silver Farming</a>
-          <a href="/captains-tier-list/" aria-current={path.startsWith('/captains-tier-list') ? 'page' : undefined}>Captains</a>
+          <a href="/captains/" aria-current={path.startsWith('/captains') && !path.startsWith('/captains-tier-list') ? 'page' : undefined}>Captains</a>
           <a href="/contact/" aria-current={path.startsWith('/contact') ? 'page' : undefined}>Contact</a>
         </nav>
-        <div class="chip-row">
-          <span class="chip" title="Editorial target; Steam patch string not confirmed">Verified · EA 0.9.9</span>
-          <span class="disclaimer">Unofficial fan guide. Not affiliated with Randwerk or Sidekick Publishing. Steam &amp; the Steam logo are trademarks of Valve Corporation.</span>
-        </div>
       </div>
     </header>
     <main>
@@ -72,12 +73,12 @@ const path = Astro.url.pathname;
     </main>
     <footer class="site-footer">
       <p>
-        Wanderburg Guide · Early Access editorial target 0.9.9 ·
+        Wanderburg Guide · unofficial fan site ·
         <a href="https://store.steampowered.com/app/3624140/Wanderburg/" rel="noopener noreferrer">Steam</a>
         ·
         <a href="/contact/">Contact</a>
       </p>
-      <p>No official affiliation. Data from public Steam store + creator videos; gaps marked UNVERIFIED / CONFLICT.</p>
+      <p>Not affiliated with Randwerk or Sidekick Publishing.</p>
     </footer>
   </body>
 </html>

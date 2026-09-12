@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Wanderburg Guide — Modules, Silver & Captains (0.9.9 EA)';
 const description =
-  'Unofficial Wanderburg Early Access guides: best modules, silver farming (Overtime), and captains role/synergy notes for EA 0.9.9. No invented DPS or shop prices.';
+  'Player-first Wanderburg Early Access guides: module slot reference, silver Overtime decision tree, and captain × module pairings. Finish runs — no invented DPS or shop prices.';
 const ogImage =
   'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/1af8e0906799b8c9063d0e5031571aef48b55605/header_alt_assets_2.jpg';
 ---
@@ -12,60 +12,44 @@ const ogImage =
   <img
     class="hero-img"
     src={ogImage}
-    alt="Wanderburg Steam store header — castle on wheels"
+    alt="Wanderburg — castle on wheels Steam header"
     width="1200"
     height="630"
     fetchpriority="high"
   />
-  <p class="hero-caption">Steam store header (app 3624140). Unofficial fan guide.</p>
+  <p class="hero-caption">Finish a run. Spend silver. Unlock the next toy.</p>
 
-  <h1>Wanderburg Guide (Early Access)</h1>
+  <h1>Wanderburg Guide</h1>
   <p class="lead">
-    Drive your castle on wheels — then spend silver between runs. These pages map
-    <strong>module families</strong>, the <strong>Overtime silver loop</strong>, and a
-    <strong>captains roster</strong> from public tapes. Editorial target label:
-    <strong>0.9.9 EA</strong> (Steam patch string not confirmed as of 2026-09-12).
+    Castle-on-wheels roguelike. These three pages tell you what to mount, when to cash out, and which captain fits your kit.
   </p>
 
-  <div class="card-grid">
+  <div class="do-now">
+    <h2>Do this now</h2>
+    <ul>
+      <li>Learn the four slots — front, side, top, back — before you buy anything.</li>
+      <li>Spend <strong>silver</strong> between runs. In-run <strong>gold</strong> only buys level-ups.</li>
+      <li>Clear four bosses, then enter <strong>Overtime</strong> if you still have HP.</li>
+      <li>Pair captains to modules (Pirate → cannons; Empress → Companion).</li>
+    </ul>
+  </div>
+
+  <div class="card-grid cards-3">
     <a class="card" href="/best-modules/">
       <h2>Best Modules</h2>
-      <p>Starter four, unlock→purchase chains, turrets / cannons / fire / Empress+Companion. No fake tier ranks.</p>
+      <p>Slot chart + what to mount. Unlock → buy chains. Build families.</p>
     </a>
     <a class="card" href="/silver-farming/">
       <h2>Silver Farming</h2>
-      <p>Silver ≠ gold. Overtime after four bosses, quests, map multipliers — no invented silver/min formula.</p>
+      <p>When to Overtime. When to cash out. Quests that pay lump silver.</p>
     </a>
-    <a class="card" href="/captains-tier-list/">
-      <h2>Captains Tier List</h2>
-      <p>EN roster of 10 + PT UI names. Role/synergy comparison only — no invented S/A/B ranks.</p>
-    </a>
-    <a class="card" href="/contact/">
-      <h2>Contact</h2>
-      <p>Corrections and tips welcome. Email placeholder until a real inbox is ready.</p>
+    <a class="card" href="/captains/">
+      <h2>Captains</h2>
+      <p>Unlock / role / pairing. Who warps which module line.</p>
     </a>
   </div>
 
-  <h2>Quick facts</h2>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr><th>Fact</th><th>Detail</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Game</td><td>Wanderburg — medieval roguelike of roaming fortresses</td></tr>
-        <tr><td>Steam</td><td>AppID 3624140 · EA since 8 Sep 2026</td></tr>
-        <tr><td>Developer</td><td>Randwerk</td></tr>
-        <tr><td>Publisher</td><td>Sidekick Publishing</td></tr>
-        <tr><td>Official site</td><td><a href="https://wanderburg.com/" rel="noopener noreferrer">wanderburg.com</a></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="crosslinks">
-    <strong>Start here:</strong>
-    <a href="/best-modules/">Best modules</a> ·
-    <a href="/silver-farming/">Silver farming</a> ·
-    <a href="/captains-tier-list/">Captains</a>
-  </div>
+  <p class="meta-note">
+    Unofficial · Steam app 3624140 · EA since 8 Sep 2026 · Randwerk / Sidekick Publishing · editorial label 0.9.9
+  </p>
 </BaseLayout>

@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Wanderburg Captains Guide (0.9.9 EA)';
+const description =
+  'Wanderburg captains unlock, role, and module pairing guide for Early Access 0.9.9. EN roster of 10 with captain × module links. No invented S/A/B tiers.';
+const ogImage =
+  'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/1af8e0906799b8c9063d0e5031571aef48b55605/header_alt_assets_2.jpg';
+
+const enCaptains = [
+  {
+    name: 'Lumberjack',
+    role: 'Starter-flavored pick',
+    pair: 'No module line locked yet — fine as a first captain while you learn slots.',
+  },
+  {
+    name: 'The Count',
+    role: 'Healing / sustain',
+    pair: 'Reported as more healing. Pair with long Overtime sits and Repair Crew.',
+  },
+  {
+    name: 'Racer Ruth',
+    role: 'Mobility (by name / pick flavor)',
+    pair: 'Speed helps Overtime survival. Strong default when Empress isn’t in play.',
+  },
+  {
+    name: 'Norbert The Normal',
+    role: 'Default / baseline',
+    pair: 'One creator called out “no arrow-related captains” here — safe with any kit.',
+  },
+  {
+    name: 'Patchy The Pirate',
+    role: 'Cannon damage',
+    pair: 'Reported: +100% your cannons, +100% enemy cannons. Mount side cannons / Front Cannon / mortar. See Best modules → cannons.',
+  },
+  {
+    name: 'Huntress',
+    role: 'Named on EN stills',
+    pair: 'No verified arrow kit text yet. If you run turrets + arrows, try her — confirm tooltip in loadout.',
+  },
+  {
+    name: 'Tankbert',
+    role: 'Hull / HP line',
+    pair: 'Stills show HP growth on destroying vehicles, with a nitro regen hit. Pair with ram / vehicle-kill routes; watch OT mobility.',
+  },
+  {
+    name: 'Time Witch',
+    role: 'Named on EN stills',
+    pair: 'No cooldown kit confirmation in our sources — check tooltip before you buy.',
+  },
+  {
+    name: 'Duelist',
+    role: 'Named on EN stills',
+    pair: 'No verified melee/ram link yet. Ram family players: confirm in loadout.',
+  },
+  {
+    name: 'Pyromaniac',
+    role: 'Fire flavor',
+    pair: 'Pairs thematically with Fire Crew + Side Ballista. Kit text not dumped here — confirm before spending silver.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/captains/">
+  <h1>Wanderburg Captains Guide (0.9.9 EA)</h1>
+
+  <div class="do-now">
+    <h2>Do this now</h2>
+    <ol>
+      <li>Buy a captain only after you know your <a href="/best-modules/">module slots</a>.</li>
+      <li><strong>Pirate</strong> → cannons. <strong>Empress</strong> (aside below) → Companion / barracks + accept half speed.</li>
+      <li>Farm silver first — captains sit in the between-run shop. <a href="/silver-farming/">Silver farming</a>.</li>
+      <li>There is no official tier list. Pair by kit, not by letter ranks.</li>
+    </ol>
+  </div>
+
+  <p class="lead">
+    Unlock / role / pairing for the EN roster of 10. Card art is incomplete on some stills — table first; images later.
+  </p>
+
+  <h2>Captain × module pairing</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Captain</th>
+          <th>Role</th>
+          <th>Pair with</th>
+        </tr>
+      </thead>
+      <tbody>
+        {enCaptains.map((c, i) => (
+          <tr>
+            <td>{i + 1}</td>
+            <td><strong>{c.name}</strong></td>
+            <td>{c.role}</td>
+            <td>{c.pair}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Key pairings (worth memorizing)</h2>
+  <ul>
+    <li>
+      <strong>Patchy The Pirate → cannons</strong> —
+      Side cannons, Front Cannon, mortar family. Enemy cannons also hit harder. Details on
+      <a href="/best-modules/">Best modules</a>.
+    </li>
+    <li>
+      <strong>The Count → sustain</strong> —
+      Healing talk on tape. Helps long Overtime sits.
+    </li>
+    <li>
+      <strong>Tankbert → vehicle kills / HP</strong> —
+      Grow HP bar when you destroy vehicles; nitro regen suffers. Plan mobility elsewhere.
+    </li>
+  </ul>
+
+  <aside class="decision-tree" aria-label="Empress and PT UI captains">
+    <h3>Empress (spoken on EN tapes; PT UI still)</h3>
+    <p>
+      Not in the EN-10 table above. Creators read: <strong>double friendly units</strong>, <strong>half speed</strong>.
+      Pair with <strong>Companion</strong> (back slot) or Side Barracks. Skip Spiderberg for Companion runs.
+      Half-speed tax hurts Overtime — bring ram / booster / nitro.
+    </p>
+    <h3>Other PT UI names (not main table)</h3>
+    <p>
+      Portuguese UI stills also show <strong>Kapitalistus Maximus</strong> and <strong>Sire Jonah</strong>.
+      Listed for roster completeness only — not ranked against EN.
+    </p>
+  </aside>
+
+  <p class="meta-note">Demo Dieter is out of scope for EA. Card gallery held until crops are clean.</p>
+
+  <div class="crosslinks">
+    <strong>Related:</strong>
+    <a href="/best-modules/">Best modules</a> ·
+    <a href="/silver-farming/">Silver farming</a> ·
+    <a href="/">Home</a>
+  </div>
+
+  <details class="still-checking">
+    <summary>Still checking</summary>
+    <ul>
+      <li>No official S/A/B sheet — we will not invent ranks.</li>
+      <li>Full tooltip text for every captain — stills + sparse ASR only.</li>
+      <li>Whether PT-localized names are unique kits — unknown.</li>
+      <li>Clean captain card crops for gallery — pending.</li>
+      <li>0.9.9 patch string not confirmed on Steam news.</li>
+    </ul>
+  </details>
+</BaseLayout>
