@@ -8,6 +8,14 @@ const modulesStill =
   'https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3624140/36b03816140674eb040db96cec090854044dff5d/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.jpg';
 const ogImage = modulesStill;
 const heroSrc = '/images/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.jpg';
+
+/** Real EA starter modules — not mock Watchtower inventions */
+const showcase = [
+  { name: 'Side Cannons', slot: 'Side', blurb: 'Auto-fire + broadside ability. Core day-one gun.', stat: 'Unlock → Front Cannon at Lv10' },
+  { name: 'Front Ram', slot: 'Front', blurb: 'Hit + shove ahead. Helps Overtime mobility.', stat: 'Unlock → Arms at Lv10' },
+  { name: 'Top Mortar', slot: 'Top', blurb: 'Area volley / bombard from the roof.', stat: 'Some hulls get two top slots' },
+  { name: 'Mine Layer', slot: 'Back', blurb: 'Drop mines while you kite. Spiderberg has no back.', stat: 'Pairs with Companion routes' },
+];
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/best-modules/" shell="parchment">
@@ -27,6 +35,19 @@ const heroSrc = '/images/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.j
       <p class="lead" style="text-align:center;">
         Slot reference + what to mount. Real Wanderburg modules — side cannons, ram, mortar, mine layer, and unlock chains.
       </p>
+      <span class="hero-divider" aria-hidden="true" style="margin:0.5rem auto 1rem;display:block;"></span>
+
+      <div class="module-showcase" role="list">
+        {showcase.map((m) => (
+          <article class="module-card" role="listitem">
+            <span class="mod-slot">{m.slot}</span>
+            <h3>{m.name}</h3>
+            <p>{m.blurb}</p>
+            <div class="mod-stat">{m.stat}</div>
+            <a class="cta-btn" href="#starter-four">View details →</a>
+          </article>
+        ))}
+      </div>
 
       <h2>Module slots</h2>
       <div class="slot-diagram" aria-label="Module slot layout">
@@ -56,7 +77,7 @@ const heroSrc = '/images/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.j
         Hulls named on tape: <strong>Wanderterm</strong> (starter), <strong>Spiderberg</strong>, <strong>Tankenberg</strong>.
       </p>
 
-      <h2>Starter four — what you mount day one</h2>
+      <h2 id="starter-four">Starter four — what you mount day one</h2>
       <div class="table-wrap">
         <table>
           <thead>
@@ -177,7 +198,7 @@ const heroSrc = '/images/ss_36b03816140674eb040db96cec090854044dff5d.1920x1080.j
           Top sits above the hull. Some hulls get two top slots. Spiderberg has no back.
         </p>
       </div>
-      <div class="side-panel">
+      <div class="side-panel tips-board">
         <h2>Do This Now</h2>
         <ol>
           <li>Start with <strong>side cannons, ram, mortar, mine layer</strong>.</li>

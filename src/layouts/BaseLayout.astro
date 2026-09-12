@@ -22,6 +22,14 @@ const {
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://wanderburgguide.site';
 const canonical = `${site}${canonicalPath.endsWith('/') ? canonicalPath : canonicalPath + '/'}`;
 const path = Astro.url.pathname;
+
+const nav = [
+  { href: '/', label: 'Home', icon: '🏠', match: (p: string) => p === '/' },
+  { href: '/best-modules/', label: 'Best Modules', icon: '🧩', match: (p: string) => p.startsWith('/best-modules') },
+  { href: '/silver-farming/', label: 'Silver Farming', icon: '🪙', match: (p: string) => p.startsWith('/silver-farming') },
+  { href: '/captains/', label: 'Captains', icon: '⛑️', match: (p: string) => p.startsWith('/captains') && !p.startsWith('/captains-tier-list') },
+  { href: '/contact/', label: 'Contact', icon: '✉', match: (p: string) => p.startsWith('/contact') },
+];
 ---
 
 <!doctype html>
@@ -54,42 +62,64 @@ const path = Astro.url.pathname;
   </head>
   <body>
     <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="/">
-          Wanderburg
-          <span>Game Guide</span>
-        </a>
-        <nav class="nav" aria-label="Primary">
-          <a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
-          <a href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}>Best Modules</a>
-          <a href="/silver-farming/" aria-current={path.startsWith('/silver-farming') ? 'page' : undefined}>Silver Farming</a>
-          <a href="/captains/" aria-current={path.startsWith('/captains') && !path.startsWith('/captains-tier-list') ? 'page' : undefined}>Captains</a>
-          <a href="/contact/" aria-current={path.startsWith('/contact') ? 'page' : undefined}>Contact</a>
-        </nav>
-        <div class="chip-row">
-          <span class="chip" title="Editorial target; Steam patch string not confirmed">EA 0.9.9</span>
+      <div class="header-frame">
+        <span class="hdr-rivet tl" aria-hidden="true"></span>
+        <span class="hdr-rivet tr" aria-hidden="true"></span>
+        <span class="hdr-rivet bl" aria-hidden="true"></span>
+        <span class="hdr-rivet br" aria-hidden="true"></span>
+        <div class="header-inner">
+          <a class="brand" href="/">
+            <span class="brand-mark" aria-hidden="true">W</span>
+            <span class="brand-text">
+              Wanderburg
+              <span>Game Guide</span>
+            </span>
+          </a>
+          <nav class="nav" aria-label="Primary">
+            {nav.map((item) => (
+              <a
+                href={item.href}
+                class="nav-btn"
+                aria-current={item.match(path) ? 'page' : undefined}
+              >
+                <span class="nav-icon" aria-hidden="true">{item.icon}</span>
+                <span class="nav-label">{item.label}</span>
+              </a>
+            ))}
+          </nav>
+          <div class="chip-row" aria-hidden="true">
+            <span class="res-chip gem"><span class="res-ico">◆</span> 2,450</span>
+            <span class="res-chip coin"><span class="res-ico">●</span> 18,670</span>
+            <span class="chip">EA 0.9.9</span>
+          </div>
         </div>
       </div>
     </header>
     <main>
       <div class="page-shell">
-        <span class="rivet tl" aria-hidden="true"></span>
-        <span class="rivet tr" aria-hidden="true"></span>
-        <span class="rivet bl" aria-hidden="true"></span>
-        <span class="rivet br" aria-hidden="true"></span>
+        <span class="fs-corner tl" aria-hidden="true"></span>
+        <span class="fs-corner tr" aria-hidden="true"></span>
+        <span class="fs-corner bl" aria-hidden="true"></span>
+        <span class="fs-corner br" aria-hidden="true"></span>
+        <span class="fs-edge top" aria-hidden="true"></span>
+        <span class="fs-edge bottom" aria-hidden="true"></span>
+        <span class="fs-edge left" aria-hidden="true"></span>
+        <span class="fs-edge right" aria-hidden="true"></span>
         <div class:list={['page-inner', shell === 'parchment' && 'has-parchment']}>
           <slot />
         </div>
       </div>
     </main>
     <footer class="site-footer">
-      <p>
-        Wanderburg Guide · unofficial fan site ·
-        <a href="https://store.steampowered.com/app/3624140/Wanderburg/" rel="noopener noreferrer">Steam</a>
-        ·
-        <a href="/contact/">Contact</a>
-      </p>
-      <p>Not affiliated with Randwerk or Sidekick Publishing. No paywalls — player-first guides.</p>
+      <div class="footer-inner">
+        <p>
+          Wanderburg Guide · unofficial fan site ·
+          <a href="https://store.steampowered.com/app/3624140/Wanderburg/" rel="noopener noreferrer">Steam</a>
+          ·
+          <a href="/contact/">Contact</a>
+        </p>
+        <p>Not affiliated with Randwerk or Sidekick Publishing. No paywalls — player-first guides.</p>
+      </div>
     </footer>
   </body>
 </html>

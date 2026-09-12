@@ -73,10 +73,11 @@ const pendingArt = [
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/captains/" shell="wood">
-  <h1>Captains Pairing Guide</h1>
+  <h1>Captains</h1>
   <p class="lead">
-    Unlock / role / pairing for the main EN roster — not a tier list. Purple shop cards below; no fake buy prices.
+    Unlock and pair legendary captains to lead your crew. EN roster roles + module links — no fake shop prices.
   </p>
+  <span class="hero-divider" aria-hidden="true" style="margin:0.35rem auto 1rem;display:block;"></span>
 
   <div class="captains-layout">
     <div>
@@ -86,14 +87,19 @@ const pendingArt = [
             <img
               src={`/images/captains/captain_${c.slug}_clean.jpg`}
               alt={`${c.name} captain card`}
-              width="200"
-              height="280"
+              width="280"
+              height="373"
               loading="lazy"
             />
             <figcaption>
               <strong>{c.name}</strong>
+              <span class="captain-stars" aria-hidden="true">★★★★★</span>
               <span class="captain-role">{c.role}</span>
-              <a class="cta-btn" href={`#pair-${c.slug}`}>View pairing →</a>
+              <a class="cta-btn" href={`#pair-${c.slug}`}>
+                {c.slug === 'PatchyThePirate' || c.slug === 'Tankbert' || c.slug === 'TheCount' || c.slug === 'Pyromaniac'
+                  ? 'Pairing notes →'
+                  : 'View guide →'}
+              </a>
             </figcaption>
           </figure>
         ))}
@@ -190,7 +196,7 @@ const pendingArt = [
     </div>
 
     <aside class="guide-side" aria-label="Tips">
-      <div class="side-panel">
+      <div class="side-panel tips-board">
         <h2>3 Do This Now Tips</h2>
         <ol>
           <li><strong>Unlock early, win early</strong> — buy a captain only after you know your <a href="/best-modules/">module slots</a>.</li>
