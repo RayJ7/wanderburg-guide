@@ -7,7 +7,7 @@ interface Props {
   ogImage?: string;
   ogType?: string;
   canonicalPath?: string;
-  shell?: 'wood' | 'parchment';
+  shell?: 'wood' | 'parchment' | 'editorial';
 }
 
 const {
@@ -16,13 +16,18 @@ const {
   ogImage = 'https://wanderburgguide.site/images/home-hero.jpg',
   ogType = 'website',
   canonicalPath = Astro.url.pathname,
-  shell = 'wood',
 } = Astro.props;
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://wanderburgguide.site';
 const canonical = `${site}${canonicalPath.endsWith('/') ? canonicalPath : canonicalPath + '/'}`;
 const path = Astro.url.pathname;
 
+const nav = [
+  { href: '/', label: 'Builds', match: (p: string) => p === '/' },
+  { href: '/best-modules/', label: 'Modules', match: (p: string) => p.startsWith('/best-modules') },
+  { href: '/captains/', label: 'Captains', match: (p: string) => p.startsWith('/captains') },
+  { href: '/silver-farming/', label: 'Silver', match: (p: string) => p.startsWith('/silver-farming') },
+];
 ---
 
 <!doctype html>
@@ -54,38 +59,25 @@ const path = Astro.url.pathname;
     </script>
   </head>
   <body>
-    <header class="site-header site-header-slice">
-      <div class="header-slice-wrap">
-        <img
-          class="header-slice-img"
-          src="/images/ui/slices/modules/modules-header.png"
-          width="1280"
-          height="79"
-          alt="Wanderburg Best Modules Guide navigation"
-        />
-        <a class="hs hs-logo" href="/"><span class="sr-only">Wanderburg home</span></a>
-        <nav class="header-hotspots" aria-label="Primary">
-          <a class="hs hs-build" href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}><span class="sr-only">Build</span></a>
-          <a class="hs hs-mymodules" href="/best-modules/" aria-current={path.startsWith('/best-modules') ? 'page' : undefined}><span class="sr-only">My Modules</span></a>
-          <a class="hs hs-map" href="/" aria-current={path === '/' ? 'page' : undefined}><span class="sr-only">Map</span></a>
-          <a class="hs hs-resources" href="/silver-farming/" aria-current={path.startsWith('/silver-farming') ? 'page' : undefined}><span class="sr-only">Resources</span></a>
-          <a class="hs hs-guides" href="/captains/" aria-current={path.startsWith('/captains') && !path.startsWith('/captains-tier-list') ? 'page' : undefined}><span class="sr-only">Guides</span></a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/">WANDERBURG GUIDE</a>
+        <nav class="nav" aria-label="Primary">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              class="nav-link"
+              aria-current={item.match(path) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
       </div>
     </header>
     <main>
       <div class="page-shell">
-        <span class="fs-corner tl" aria-hidden="true"></span>
-        <span class="fs-corner tr" aria-hidden="true"></span>
-        <span class="fs-corner bl" aria-hidden="true"></span>
-        <span class="fs-corner br" aria-hidden="true"></span>
-        <span class="fs-edge top" aria-hidden="true"></span>
-        <span class="fs-edge bottom" aria-hidden="true"></span>
-        <span class="fs-edge left" aria-hidden="true"></span>
-        <span class="fs-edge right" aria-hidden="true"></span>
-        <div class:list={['page-inner', shell === 'parchment' && 'has-parchment']}>
-          <slot />
-        </div>
+        <slot />
       </div>
     </main>
     <footer class="site-footer">
