@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Wanderburg Captains Guide (0.9.9 EA)';
 const description =
-  'Wanderburg captains unlock, role, and module pairing guide for Early Access 0.9.9. EN roster with captain × module links. No invented S/A/B tiers.';
+  'Wanderburg captains: which to use first, how each EN card pairs with a module family, and how silver buys captains in the loadout. No invented S/A/B tiers.';
 const ogImage = 'https://wanderburgguide.site/images/home-hero.jpg';
 
 /** Main EN pairing gallery — clean card art (excludes Lumberjack + Huntress; art pending). */
@@ -12,49 +12,49 @@ const mainCaptains = [
     name: 'The Count',
     slug: 'TheCount',
     role: 'Healing / sustain',
-    pair: 'Reported as more healing. Pair with long Overtime sits and Repair Crew.',
+    pair: 'Heal by consuming units (no health boxes spawn). Pair with long Overtime sits and Repair Crew.',
   },
   {
     name: 'Racer Ruth',
     slug: 'RacerRuth',
-    role: 'Mobility (by name / pick flavor)',
-    pair: 'Speed helps Overtime survival. Strong default when Empress isn’t in play.',
+    role: 'Boost mobility',
+    pair: 'Spoken: +50% speed when boosting, lower normal drive speed. Strong when you need OT kite without Empress.',
   },
   {
     name: 'Norbert The Normal',
     slug: 'NorbertTheNormal',
     role: 'Default / baseline',
-    pair: 'One creator called out “no arrow-related captains” here — safe with any kit.',
+    pair: 'Safe first pick with any kit. Turrets+arrows tapes often stay here when no arrow captain fits.',
   },
   {
     name: 'Patchy The Pirate',
     slug: 'PatchyThePirate',
     role: 'Cannon damage',
-    pair: 'Reported: +100% your cannons, +100% enemy cannons. Mount side cannons / Front Cannon / mortar.',
+    pair: 'All cannons +100% damage — enemies too. Mount side cannons / Front Cannon / mortar family.',
   },
   {
     name: 'Tankbert',
     slug: 'Tankbert',
     role: 'Hull / HP line',
-    pair: 'Stills show HP growth on destroying vehicles, with a nitro regen hit. Pair with ram / vehicle-kill routes.',
+    pair: 'Card stills show HP growth on destroying vehicles, with a nitro regen hit. Pair with ram / vehicle-kill routes.',
   },
   {
     name: 'Time Witch',
     slug: 'TimeWitch',
     role: 'Named on EN stills',
-    pair: 'No cooldown kit confirmation in our sources — check tooltip before you buy.',
+    pair: 'Kit text not dumped on our EN tapes — read the loadout tooltip before you spend silver.',
   },
   {
     name: 'Duelist',
     slug: 'Duelist',
     role: 'Named on EN stills',
-    pair: 'No verified melee/ram link yet. Ram family players: confirm in loadout.',
+    pair: 'No verified melee/ram link on tape yet. Ram family players: confirm in loadout.',
   },
   {
     name: 'Pyromaniac',
     slug: 'Pyromaniac',
     role: 'Fire flavor',
-    pair: 'Pairs thematically with Fire Crew + Side Ballista. Kit text not dumped — confirm before spending silver.',
+    pair: 'Thematic with Fire Crew + Side Ballista. Confirm kit text in loadout before spending.',
   },
 ];
 
@@ -67,7 +67,7 @@ const pendingArt = [
   {
     name: 'Huntress',
     role: 'Named on EN stills',
-    note: 'No verified arrow kit text yet. If you run turrets + arrows, try her — confirm tooltip in loadout.',
+    note: 'One tape reads ~50% auto-attack speed — try her on turrets+arrows, confirm tooltip.',
   },
 ];
 ---
@@ -75,9 +75,16 @@ const pendingArt = [
 <BaseLayout title={title} description={description} ogImage={ogImage} canonicalPath="/captains/" shell="wood">
   <h1>Captains</h1>
   <p class="lead">
-    Unlock and pair legendary captains to lead your crew. EN roster roles + module links — no fake shop prices.
+    Who to start with, which EN card fits which module family, and how silver buys captains. No fake S/A/B tiers.
   </p>
   <span class="hero-divider" aria-hidden="true" style="margin:0.35rem auto 1rem;display:block;"></span>
+
+  <div class="decision-tree" aria-label="Expectation">
+    <h3>What this page will (and won’t) do</h3>
+    <p>
+      We pair the <strong>eight EN gallery cards</strong> to module families from spoken kit text and stills. There is <strong>no official tier list</strong> — we will not invent S/A/B ranks or shop prices.
+    </p>
+  </div>
 
   <div class="captains-layout">
     <div>
@@ -105,7 +112,25 @@ const pendingArt = [
         ))}
       </div>
 
-      <h2>Captain × module pairing</h2>
+      <h2 id="beginners">New player — which captains first?</h2>
+      <p>
+        <strong>Answer:</strong> Start with <strong>Norbert</strong> (default), then grab <strong>The Count</strong> for sustain or <strong>Racer Ruth</strong> if you want boost speed for Overtime.
+      </p>
+      <p>
+        Norbert is the safe “any kit” pick — turrets+arrows tapes often stay on him when no arrow captain fits. The Count heals by consuming units (health boxes stop spawning on that kit read) — great while you learn to stay alive through four bosses.
+      </p>
+      <p>
+        Racer Ruth’s spoken trade: more speed when boosting, less normal drive speed. Use her when you’re farming Overtime silver and need kite, not when you’re locking Empress half-speed. Don’t burn early silver on a captain whose kit you can’t read yet — farm first (<a href="/silver-farming/">Silver farming</a>).
+      </p>
+
+      <h2 id="pairings">Which captain fits which module family?</h2>
+      <p>
+        <strong>Answer:</strong> Match the captain to the guns — <strong>Pirate → cannons/mortar</strong>, <strong>Count → sustain / long OT</strong>, <strong>Ruth → boost kite</strong>, <strong>Pyromaniac → fire+ballista</strong>, <strong>Tankbert → ram / vehicle kills</strong>; leave Norbert on anything else.
+      </p>
+      <p>
+        That’s the EN-8 cheat sheet. Time Witch and Duelist are on the gallery with sparse spoken kit — read the loadout tooltip before you spend. Module slot details: <a href="/best-modules/">Best modules</a>.
+      </p>
+
       <div class="table-wrap">
         <table>
           <thead>
@@ -129,22 +154,40 @@ const pendingArt = [
         </table>
       </div>
 
-      <h2>Key pairings (worth memorizing)</h2>
+      <h3>Key pairings (worth memorizing)</h3>
       <ul>
         <li>
-          <strong>Patchy The Pirate → cannons</strong> —
-          Side cannons, Front Cannon, mortar family. Enemy cannons also hit harder. Details on
-          <a href="/best-modules/">Best modules</a>.
+          <strong>Patchy The Pirate → cannons + mortar</strong> —
+          Side cannons, Front Cannon, mortar family. Enemy cannons also hit harder.
         </li>
         <li>
           <strong>The Count → sustain</strong> —
-          Healing talk on tape. Helps long Overtime sits.
+          Heal on consume. Helps long Overtime sits next to Repair Crew.
+        </li>
+        <li>
+          <strong>Racer Ruth → OT kite</strong> —
+          Boost speed for silver farms when you’re not on Empress.
         </li>
         <li>
           <strong>Tankbert → vehicle kills / HP</strong> —
-          Grow HP bar when you destroy vehicles; nitro regen suffers. Plan mobility elsewhere.
+          Grow HP when you destroy vehicles; nitro regen takes a hit — plan mobility elsewhere.
+        </li>
+        <li>
+          <strong>Pyromaniac → fire + ballista</strong> —
+          Same neighborhood as Fire Crew + Side Ballista; confirm tooltip.
         </li>
       </ul>
+
+      <h2 id="buy-captains">How do I unlock / buy captains in the shop?</h2>
+      <p>
+        <strong>Answer:</strong> Captains sit in the <strong>between-run loadout</strong> — you buy them with <strong>silver</strong>, same screen as modules and crew.
+      </p>
+      <p>
+        Official about-text lists captains among the between-run unlocks. Players browse the shop after a run, read kit text (Racer Ruth / The Count are read aloud on tape), and spend silver when they can afford a pick. One early clip: “need a lot more silver” before new pilots unlocked.
+      </p>
+      <p>
+        We don’t have a verified price grid or a quest that unlocks each captain by name. Farm Overtime and quest lumps first (<a href="/silver-farming/">Silver farming</a>), then buy the captain that matches the module family you’re already running — don’t buy blind.
+      </p>
 
       <details class="pending-art">
         <summary>Also in shop — art pending</summary>
@@ -163,7 +206,7 @@ const pendingArt = [
       <aside class="decision-tree" aria-label="Empress and PT UI captains">
         <h3>Empress (spoken on EN tapes; PT UI still)</h3>
         <p>
-          Not in the EN table above. Creators read: <strong>double friendly units</strong>, <strong>half speed</strong>.
+          Not in the EN gallery eight above. Creators read: <strong>double friendly units</strong>, <strong>half speed</strong>.
           Pair with <strong>Companion</strong> (back slot) or Side Barracks. Skip Spiderberg for Companion runs.
           Half-speed tax hurts Overtime — bring ram / booster / nitro.
         </p>
@@ -187,8 +230,7 @@ const pendingArt = [
         <summary>Still checking</summary>
         <ul>
           <li>No official S/A/B sheet — we will not invent ranks.</li>
-          <li>Full tooltip text for every captain — stills + sparse ASR only.</li>
-          <li>Whether PT-localized names are unique kits — unknown.</li>
+          <li>Full tooltip text for Time Witch / Duelist / Pyromaniac — stills + sparse ASR only.</li>
           <li>Cleaner Lumberjack / Huntress crops for main gallery — pending.</li>
           <li>0.9.9 patch string not confirmed on Steam news.</li>
         </ul>
@@ -199,9 +241,9 @@ const pendingArt = [
       <div class="side-panel tips-board">
         <h2>3 Do This Now Tips</h2>
         <ol>
-          <li><strong>Unlock early, win early</strong> — buy a captain only after you know your <a href="/best-modules/">module slots</a>.</li>
-          <li><strong>Pair for synergy</strong> — Pirate → cannons. Empress → Companion / barracks + accept half speed.</li>
-          <li><strong>Level &amp; lead</strong> — farm silver first; captains sit in the between-run shop. <a href="/silver-farming/">Silver farming</a>.</li>
+          <li><strong>Start Norbert / Count / Ruth</strong> — learn slots before exotic buys.</li>
+          <li><strong>Pair by family</strong> — Pirate → cannons. Empress → Companion + accept half speed.</li>
+          <li><strong>Buy with silver</strong> — captains live in the between-run shop. <a href="/silver-farming/">Farm first</a>.</li>
         </ol>
         <p style="font-size:0.78rem;margin:0.75rem 0 0;opacity:0.9;">
           There is no official tier list. Pair by kit, not by letter ranks.
