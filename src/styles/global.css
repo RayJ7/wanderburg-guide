@@ -1248,3 +1248,34 @@ code {
   box-shadow: none;
   color: var(--text);
 }
+
+/* Modules editorial inline figures (no wood frames) */
+.guide-figure {
+  margin: 1rem 0 1.25rem;
+  max-width: 360px;
+}
+.guide-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.guide-figure-wide {
+  max-width: 100%;
+}
+.guide-figure figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted, #aaaf9b);
+}
+.guide-figure-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0 1.25rem;
+}
+.guide-figure-row .guide-figure {
+  margin: 0;
+  flex: 1 1 160px;
+  max-width: 280px;
+}
