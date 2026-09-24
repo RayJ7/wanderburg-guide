@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const title = 'Wanderburg Guide — Modules, Silver & Captains (0.9.13 EA)';
+const title = 'Wanderburg Guide — Modules, Silver & Captains (0.9.14 EA)';
 const description =
   'Player-first Wanderburg Early Access guides: module slot reference, silver Overtime decision tree, and captain × module pairings. Finish runs — no invented DPS or shop prices.';
 const ogImage = 'https://wanderburgguide.site/images/og-home.jpg';
@@ -129,6 +129,27 @@ const ogImage = 'https://wanderburgguide.site/images/og-home.jpg';
     </p>
   </section>
 
+  <section class="guide-section" id="hotfix-0914">
+    <h2>Hotfix 0.9.14 (23 Sep) — boss-fight zoom, a second artifact reroll, Electric Mage buffs</h2>
+    <p>
+      Official notes for this one: <strong>allied units are now immune to fire, stun and knockback</strong> (they were
+      already invincible, so this makes the behaviour consistent), the game <strong>zooms out slightly during boss fights</strong>,
+      and some larger enemies no longer take percentage-based damage from <strong>boss explosion damage</strong>.
+    </p>
+    <p>
+      Balance and quality of life: a <strong>second artifact reroll is now available from the start</strong>, stun resistances
+      for Overtime enemies were adjusted, the <strong>Repair Wrench heals a flat 25 HP instead of 25%</strong>, and the Electric
+      Mage's auto attack was buffed — base targets per attack go from <strong>5 to 7</strong>, and upgrades now grant more targets.
+      Bug fixes cover the Electric Mage's “Roaming Storm” effect, the “Welcome to the Desert” achievement, the “Tinderbox”
+      artifact and the Overworld biome skull display. Performance and stability work adds a <strong>240 FPS limit</strong> for
+      the main menu and Overworld, plus more robust escape-menu, leaderboard-loading and map-generation code.
+    </p>
+    <p>
+      Two of these change what you can rely on in a run: a flat 25 HP Repair Wrench heals the same amount whether your castle
+      is big or small, and a second artifact reroll makes an early artifact pick far less punishing.
+    </p>
+  </section>
+
   <div class="status-bar" role="contentinfo">
     <span>🛡 Built for Wanderburg players</span>
     <span>🌿 Player-first guides</span>
@@ -137,7 +158,7 @@ const ogImage = 'https://wanderburgguide.site/images/og-home.jpg';
   </div>
 
   <p class="meta-note" style="margin-top:1rem;text-align:center;">
-    Unofficial · Steam app 3624140 · EA since 8 Sep 2026 · Randwerk / Sidekick Publishing · editorial label 0.9.13
+    Unofficial · Steam app 3624140 · EA since 8 Sep 2026 · Randwerk / Sidekick Publishing · editorial label 0.9.14
   </p>
   </div>
 </BaseLayout>
